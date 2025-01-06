@@ -8,13 +8,13 @@ export default function Home() {
         {/* Profile Section */}
         <div className="space-y-4">
           <div className="w-32 h-32 rounded-full overflow-hidden">
-            <Image
-              src="/Sriram.jpeg"
-              alt="Profile picture"
-              width={128}
-              height={128}
-              className="object-cover"
-            />
+        <Image
+  src="/personal/Sriram.jpeg"  // Changed from "/Sriram.jpeg"
+  alt="Profile picture"
+  width={128}
+  height={128}
+  className="object-cover"
+/>
           </div>
           <h1 className="text-3xl font-bold">Sriram Kothandaraman</h1>
         </div>
