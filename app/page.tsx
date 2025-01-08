@@ -8,8 +8,8 @@ export default function Home() {
         {/* Profile Section */}
         <div className="space-y-4">
           <div className="w-32 h-32 rounded-full overflow-hidden">
-        <Image
-  src="/Sriram.jpeg"
+      <Image
+  src="/Sriram.jpeg"  // Make sure this matches your image filename exactly
   alt="Profile picture"
   width={128}
   height={128}
