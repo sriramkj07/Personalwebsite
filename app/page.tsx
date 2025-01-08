@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { Github, Linkedin, Mail } from 'lucide-react'  // Note the exact capitalization
+import { Github, Linkedin, Mail, Calendar } from 'lucide-react'  // Note the exact capitalization
 
 export default function Home() {
   return (
