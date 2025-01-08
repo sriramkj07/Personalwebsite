@@ -42,13 +42,13 @@ export default function Home() {
             <Github className="h-5 w-5" />
             GitHub
           </a>
-          <a 
-            href="https://topmate.io/sriramk/"
-            className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
-          >
-            <Topmate className="h-5 w-5" />
-            Topmate
-          </a>
+         import { Calendar } from 'lucide-react'  // Add this to your imports
+
+{/* Topmate link */}
+<a href="https://topmate.io/sriramk/" className="text-blue-600 hover:text-blue-800 flex items-center gap-2">
+  <Calendar className="h-5 w-5" />
+  Topmate
+</a>
         </div>
         {/* Bio Section */}
         <div className="space-y-4">
