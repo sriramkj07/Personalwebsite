@@ -30,6 +30,8 @@ export default function Home() {
           </a>
           <a 
             href="https://www.linkedin.com/in/sriramkj/"
+target="_blank"
+  rel="noopener noreferrer"
             className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
           >
             <Linkedin className="h-5 w-5" />
@@ -37,6 +39,8 @@ export default function Home() {
           </a>
           <a 
             href="https://github.com/sriramkj07"
+target="_blank"
+  rel="noopener noreferrer"
             className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
           >
             <Github className="h-5 w-5" />
@@ -44,7 +48,10 @@ export default function Home() {
           </a>
 
 {/* Topmate link */}
-<a href="https://topmate.io/sriramk/" className="text-blue-600 hover:text-blue-800 flex items-center gap-2">
+<a href="https://topmate.io/sriramk/"
+target="_blank"
+  rel="noopener noreferrer"
+ className="text-blue-600 hover:text-blue-800 flex items-center gap-2">
   <Calendar className="h-5 w-5" />
   Topmate
 </a>
