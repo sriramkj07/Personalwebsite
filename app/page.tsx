@@ -74,7 +74,7 @@ target="_blank"
 
     I hope to write about some of these interests and showcase my builds. 
     
-    I’m currently based in San Francisco and previously spent time in Boston, where I attended Grad School, as well as in Chennai and Hyderabad`}
+    I’m currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad`}
   </p>
 </div>
         </div>
