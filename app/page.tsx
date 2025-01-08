@@ -43,11 +43,11 @@ export default function Home() {
             GitHub
           </a>
         </div>
- <a 
+          <a 
             href="https://topmate.io/sriramk/"
             className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
           >
-            <Topmate className="h-5 w-5" />
+            <topmate className="h-5 w-5" />
             topmate
           </a>
         </div>
