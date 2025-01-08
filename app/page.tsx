@@ -9,7 +9,7 @@ export default function Home() {
         <div className="space-y-4">
           <div className="w-32 h-32 rounded-full overflow-hidden">
         <Image
-  src="/personal/Sriram.jpeg"  // Changed from "/Sriram.jpeg"
+  src="/Sriram.jpeg"
   alt="Profile picture"
   width={128}
   height={128}
