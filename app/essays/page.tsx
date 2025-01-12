@@ -7,15 +7,17 @@ import Link from 'next/link';
 export default function Essays() {
   return (
     <div className="min-h-screen bg-white text-black p-8 md:p-16 lg:p-24 font-mono">
-      <h1 className="text-3xl font-bold mb-6">Memos</h1>
+      <h1 className="text-3xl font-bold mb-6">Essays</h1>
       <p className="text-gray-600 mb-4">
-        I'm fascinated by interesting memos written for an internal audience - a company, a campaign or even for the President. Raw, not smoothened over for PR departments, they help shed light on how people really think inside institutions.
+        I'm fascinated by interesting essays written by extremely smart people, which also immediately made sense and kept me hooked to my chair. 
       </p>
       <p className="text-gray-600 mb-4">
-        These are challenging to find. They typically seem to come into the public domain in one of three ways: through being really old, being part of some lawsuit/legal process or, sadly, being part of a hack.
+       They also have a high re-reability rate, and I personally have went back to look, read, get inspired by them several times
       </p>
       <p className="text-gray-600 mb-4">
-        Each of the below are 'interesting' which I define broadly as either the impact they had, the quality of their writing or just helping shed light on how communication works in a different domain. If you know of an interesting memo in the public domain (or you have permission to share), drop me a note at sirram@sriramk.com.
+      I also wanted a personal repository that I could just access immediately, and if it helps others get inspired even better!
+
+      If you know of an interesting essay you've read, drop me a note at kothandaraman.s@northeastern.edu 
       </p>
       <h2 className="text-2xl font-bold mb-4">Business</h2>
       <ul className="list-disc pl-6 text-gray-600 mb-6">
