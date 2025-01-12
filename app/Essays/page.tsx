@@ -35,9 +35,10 @@ export default function Essays() {
           Dave Goldberg to Michael Lynton on the state of the music industry.From the Sony
         </li>
       </ul>
-      <p className="text-blue-600 mt-6">
-        <Link href="sriramkj.com">Back to Home</Link>
-      </p>
+  
+        <Link href="/" className="text-blue-600 hover:text-blue-800">
+  Back to Home
+</Link>
     </div>
   );
 }
