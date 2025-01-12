@@ -1,5 +1,10 @@
 import './globals.css'
 import { JetBrains_Mono } from 'next/font/google'
+// app/layout.tsx
+export const metadata = {
+  title: 'sriram Kothandaraman',
+  description: 'A personal website, thats all folks'
+}
 
 const jetbrainsMono = JetBrains_Mono({ 
   subsets: ['latin'],
