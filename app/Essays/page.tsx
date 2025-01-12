@@ -34,7 +34,7 @@ export default function Essays() {
         </li>
       </ul>
       <p className="text-blue-600 mt-6">
-        <Link href="/">Back to Home</Link>
+        <Link href="sriramkj.com">Back to Home</Link>
       </p>
     </div>
   );
