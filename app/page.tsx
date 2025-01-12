@@ -58,7 +58,7 @@ export default function Home() {
             `}
           </p>
           <div>
-            <Link href="sriramkj.com/essays" className="text-blue-600 hover:text-blue-800">Essays</Link><div className="text-gray-600">:I also collect some essays that I personally think are influential and will be timeless</div>
+            <Link href="/essays" className="text-blue-600 hover:text-blue-800">Essays</Link><div className="text-gray-600">:I also collect some essays that I personally think are influential and will be timeless</div>
           </div>
         </div>
       </div>
