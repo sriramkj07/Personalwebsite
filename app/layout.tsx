@@ -2,7 +2,7 @@ import './globals.css'
 import { JetBrains_Mono } from 'next/font/google'
 // app/layout.tsx
 export const metadata = {
-  title: 'sriram Kothandaraman',
+  title: 'Sriram Kothandaraman',
   description: 'A personal website, thats all folks'
 }
 
