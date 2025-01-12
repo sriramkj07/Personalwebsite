@@ -62,7 +62,7 @@ export default function Home() {
     Essays
   </Link>
   <span className="text-gray-600">
-    I also collect some essays that I personally think are influential and will be timeless
+    : I also collect some essays that I personally think are influential and will be timeless
   </span>
 </div>
 </div>
