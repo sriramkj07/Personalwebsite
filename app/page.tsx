@@ -47,6 +47,7 @@ export default function Home() {
           </p>
           <p style={{ whiteSpace: 'pre-line' }} className="text-gray-600">
             {` Hi there 👋
+
                I'm Sriram (Shri - Rahhm), I build products, I cycle, I love reading books and I have a great fondness for stand-up com(ics)edy.
 
                I currently build products at ServiceNow. I'm fascinated by powerful network effects enabled by tech and how it disrupts traditional markets. I aspire to build such large scale platforms for the future.
