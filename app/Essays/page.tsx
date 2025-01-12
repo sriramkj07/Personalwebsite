@@ -2,6 +2,8 @@ export const metadata = {
   title: 'Essays'
 };
 
+import Link from 'next/link';
+
 export default function Essays() {
   return (
     <div className="min-h-screen bg-white text-black p-8 md:p-16 lg:p-24 font-mono">
