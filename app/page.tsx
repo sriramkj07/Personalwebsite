@@ -7,7 +7,7 @@ export default function Home() {
     <div className="min-h-screen bg-white text-black p-8 md:p-16 lg:p-24 font-mono">
       <div className="max-w-2xl mx-auto space-y-8">
         {/* Profile Section */}
-        <div className="space-y-4">
+        <div className="space-y-4"> 
           <div className="w-32 h-32 rounded-full overflow-hidden">
             <Image
               src="/Sriram.jpeg"
