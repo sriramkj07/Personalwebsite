@@ -46,23 +46,16 @@ export default function Home() {
             Product Manager, Tech-nerd, Amateur Coder
           </p>
           <p style={{ whiteSpace: 'pre-line' }} className="text-gray-600">
-            {`
-              Hi there 👋
-
-              I'm Sriram (Shri - Rahhm), I build products, I cycle, I love reading books and I have a great fondness for stand-up com(ics)edy.
-
-              I currently build products at ServiceNow. I'm fascinated by powerful network effects enabled by tech and how it disrupts traditional markets.
-
-              I aspire to build such large scale platforms for the future.
-
-              I hope to write about some of these interests and showcase my builds.
-
-              I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad.
+            {` Hi there 👋
+               I'm Sriram (Shri - Rahhm), I build products, I cycle, I love reading books and I have a great fondness for stand-up com(ics)edy.
+               I currently build products at ServiceNow. I'm fascinated by powerful network effects enabled by tech and how it disrupts traditional markets.
+               I aspire to build such large scale platforms for the future.
+               I hope to write about some of these interests and showcase my builds.
+               I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad.
             `}
           </p>
           <div>
-            <Link href="sriramkj.com/essays" className="text-blue-600 hover:text-blue-800">Essays</Link>
-            <div className="text-gray-600">I also collect some essays that I personally think are influential and will be timeless</div>
+            <Link href="sriramkj.com/essays" className="text-blue-600 hover:text-blue-800">Essays</Link><div className="text-gray-600">:I also collect some essays that I personally think are influential and will be timeless</div>
           </div>
         </div>
       </div>
