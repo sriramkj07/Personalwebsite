@@ -61,9 +61,9 @@ export default function Home() {
   <Link href="/essays" className="text-blue-600 hover:text-blue-800">
     Essays
   </Link>
-  <div className="text-gray-600">
+  <span className="text-gray-600">
     I also collect some essays that I personally think are influential and will be timeless
-  </div>
+  </span>
 </div>
 </div>
       </div>
