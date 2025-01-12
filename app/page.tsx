@@ -1,5 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Github, Linkedin, Mail, Calendar } from 'lucide-react'
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-white text-black p-8 md:p-16 lg:p-24 font-mono">
@@ -17,7 +19,7 @@ export default function Home() {
           </div>
           <h1 className="text-3xl font-bold">Sriram Kothandaraman</h1>
         </div>
-        
+
         {/* Social Links */}
         <div className="flex gap-4">
           <a href="mailto:kothandaraman.s@northeastern.edu" className="text-blue-600 hover:text-blue-800 flex items-center gap-2">
@@ -45,25 +47,26 @@ export default function Home() {
           </p>
           
           <div className="space-y-4 text-gray-600">
-  <p style={{ whiteSpace: 'pre-line' }}>
-    Hi there 👋
+            <p style={{ whiteSpace: 'pre-line' }}>
+              Hi there 👋
 
-    I'm Sriram (Shri - Rahhm), I build products, I cycle, I love reading books and I have a great fondness for stand-up com(ics)edy.
+              I'm Sriram (Shri - Rahhm), I build products, I cycle, I love reading books and I have a great fondness for stand-up com(ics)edy.
 
-    I currently build products at ServiceNow. I'm fascinated by powerful network effects enabled by tech and how it disrupts traditional markets.
+              I currently build products at ServiceNow. I'm fascinated by powerful network effects enabled by tech and how it disrupts traditional markets.
 
-    I aspire to build such large scale platforms for the future.
+              I aspire to build such large scale platforms for the future.
 
-    I hope to write about some of these interests and showcase my builds.
+              I hope to write about some of these interests and showcase my builds.
 
-    I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad
-  </p>
+              I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad
+            </p>
 
-  <div className="mt-4">
-    <Link href="/essays" className="text-blue-600 hover:text-blue-800">Essays</Link>
-    : I also collect some essays that I personally think are influential and will be timeless
-  </div>
-</div>
+            <div className="mt-4">
+              <Link href="/essays" className="text-blue-600 hover:text-blue-800">Essays</Link>
+              : I also collect some essays that I personally think are influential and will be timeless
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   )
