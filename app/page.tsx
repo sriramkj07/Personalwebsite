@@ -65,7 +65,7 @@ export default function Home() {
     I also collect some essays that I personally think are influential and will be timeless
   </div>
 </div>
-
+</div>
       </div>
     </div>
   );
