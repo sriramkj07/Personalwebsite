@@ -55,8 +55,8 @@ export default function Home() {
               
               I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad
  <Link href="/essays" className="text-blue-600 hover:text-blue-800 flex items-center gap-2">
-           Essays: A collection of Essays that I personally keep going back and think will be timeless
-         </Link>'
+           Essays: A collection of Essays that I personally keep going back and think will be timeless'
+         </Link>
             </p>
 
               
