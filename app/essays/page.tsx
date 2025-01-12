@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 export default function Essays() {
   return (
-    <div className="min-h-screen bg-white text-black p-8 md:p-16 lg:p-24 font-sans flex items-center justify-center">
+    <div className="min-h-screen bg-white text-black p-8 md:p-16 lg:p-24 font-mono flex items-center justify-center">
       <div className="max-w-3xl">
         <h1 className="text-3xl font-bold mb-6 text-center">Essays</h1>
         <p className="text-gray-700 mb-4 leading-relaxed">
