@@ -24,33 +24,32 @@ const getStorageWithFallback = () => {
 
 const YearProgress = () => {
   const storage = getStorageWithFallback();
-  const [state, setState] = useState(() => {
-    try {
-      const saved = storage?.getItem(STORAGE_KEY);
-      return saved ? JSON.parse(saved) : {
-        daysElapsed: 0,
-        currentDayProgress: 0,
-        progress: 0,
-        lastUpdate: null,
-        timezone: null
-      };
-    } catch {
-      return {
-        daysElapsed: 0,
-        currentDayProgress: 0,
-        progress: 0,
-        lastUpdate: null,
-        timezone: null
-      };
-    }
-  });
+
+  // Helper function to get initial state
+  const getInitialState = () => {
+    const now = new Date();
+    const startOfYear = new Date(now.getFullYear(), 0, 1);
+    const diff = now - startOfYear;
+    const totalDaysPassed = diff / (1000 * 60 * 60 * 24);
+    const completeDays = Math.floor(totalDaysPassed);
+    const partialDay = totalDaysPassed - completeDays;
+    
+    return {
+      daysElapsed: completeDays,
+      currentDayProgress: partialDay,
+      progress: (totalDaysPassed / 365) * 100,
+      lastUpdate: now.toISOString(),
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
+    };
+  };
+
+  const [state, setState] = useState(getInitialState);
 
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec', 'Jan'];
   const weekdays = ['Mon', 'Wed', 'Fri'];
 
   const calculateProgress = () => {
     try {
-      // Use UTC time to ensure consistency across time zones
       const now = new Date();
       const startOfYear = new Date(now.getFullYear(), 0, 1);
       const endOfYear = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
@@ -73,10 +72,7 @@ const YearProgress = () => {
       storage?.setItem(STORAGE_KEY, JSON.stringify(newState));
     } catch (error) {
       console.error('Error calculating progress:', error);
-      const saved = storage?.getItem(STORAGE_KEY);
-      if (saved) {
-        setState(JSON.parse(saved));
-      }
+      setState(getInitialState());
     }
   };
 
