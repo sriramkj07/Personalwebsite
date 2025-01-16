@@ -6,7 +6,6 @@ import { Card, CardContent } from '@/components/ui/card';
 const STORAGE_KEY = 'yearProgressState';
 const UPDATE_INTERVAL = 60000;
 
-// Add storage helper function
 const getStorageWithFallback = () => {
   if (typeof window === 'undefined') return null;
   
@@ -32,14 +31,16 @@ const YearProgress = () => {
         daysElapsed: 0,
         currentDayProgress: 0,
         progress: 0,
-        lastUpdate: null
+        lastUpdate: null,
+        timezone: null
       };
     } catch {
       return {
         daysElapsed: 0,
         currentDayProgress: 0,
         progress: 0,
-        lastUpdate: null
+        lastUpdate: null,
+        timezone: null
       };
     }
   });
@@ -49,9 +50,13 @@ const YearProgress = () => {
 
   const calculateProgress = () => {
     try {
+      // Use UTC time to ensure consistency across time zones
       const now = new Date();
       const startOfYear = new Date(now.getFullYear(), 0, 1);
+      const endOfYear = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
+      
       const diff = now - startOfYear;
+      const totalTime = endOfYear - startOfYear;
       const totalDaysPassed = diff / (1000 * 60 * 60 * 24);
       const completeDays = Math.floor(totalDaysPassed);
       const partialDay = totalDaysPassed - completeDays;
@@ -59,8 +64,9 @@ const YearProgress = () => {
       const newState = {
         daysElapsed: completeDays,
         currentDayProgress: partialDay,
-        progress: (totalDaysPassed / 365) * 100,
-        lastUpdate: now.toISOString()
+        progress: (diff / totalTime) * 100,
+        lastUpdate: now.toISOString(),
+        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
       };
 
       setState(newState);
@@ -146,7 +152,8 @@ const YearProgress = () => {
               {Math.floor(state.daysElapsed / 7)} weeks elapsed • {52 - Math.floor(state.daysElapsed / 7)} weeks remaining
             </div>
             <div className="text-xs text-gray-500 mt-1">
-              Last updated: {new Date(state.lastUpdate).toLocaleString()}
+              Last updated: {new Date(state.lastUpdate).toLocaleString()} 
+              {state.timezone && ` (${state.timezone})`}
             </div>
           </div>
           
