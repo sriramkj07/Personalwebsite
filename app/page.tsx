@@ -56,8 +56,8 @@ export default function Home() {
 
                <Link href="/builds" className="text-blue-600 hover:text-blue-800 hover:underline">builds</Link>
           </p>
-<div> I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad. </div>
-          <div>
+<div>  <span className="text-gray-600"> I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad. </div>
+        </span>  <div>
   <Link href="/essays" className="text-blue-600 hover:text-blue-800">
     Essays
   </Link>
