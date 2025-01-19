@@ -52,7 +52,10 @@ export default function Home() {
 
                I currently build products at ServiceNow. I'm fascinated by powerful network effects enabled by tech and how it disrupts traditional markets. I aspire to build such large scale platforms for the future.
 
-               I hope to write about some of these interests and showcase my  <Link href="/builds" className="text-blue-600 hover:text-blue-800"> builds.</Link>
+               I hope to write about some of these interests and showcase my{" "}
+<Link href="/builds" className="text-blue-600 hover:text-blue-800 hover:underline">
+  builds
+</Link>.
 
                I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad.
             `}
