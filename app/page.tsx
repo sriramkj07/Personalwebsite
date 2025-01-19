@@ -55,7 +55,9 @@ export default function Home() {
                I hope to write about some of these interests and showcase my `}
 
                <Link href="/builds" className="text-blue-600 hover:text-blue-800 hover:underline">builds</Link>
-  {` I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad.`}
+  {` 
+I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad.
+`}
           </p>
           <div>
   <Link href="/essays" className="text-blue-600 hover:text-blue-800">
