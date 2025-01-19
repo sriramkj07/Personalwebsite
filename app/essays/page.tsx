@@ -18,7 +18,7 @@ export default function Essays() {
         <p className="text-gray-700 mb-4 leading-relaxed">
           I also wanted a personal repository that I could just access immediately, and if it helps others get inspired, even better! </p>
 <p className="text-gray-700 mb-4 leading-relaxed"> 
-If you know of an interesting essay you've read that can breakdown some complex ideas into simple truths, drop me a note at <a href="mailto:kothandaraman.s@northeastern.edu" className="text-blue-600 underline">kothandaraman.s@northeastern.edu</a>.
+If you know of an interesting essay that can breakdown complex ideas into simple truths, drop me a note at <a href="mailto:kothandaraman.s@northeastern.edu" className="text-blue-600 underline">kothandaraman.s@northeastern.edu</a>.
         </p>
         <h2 className="text-2xl font-bold mb-4">Business</h2>
         <ul className="list-disc pl-8 text-gray-700 space-y-4">
