@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import { Card, CardContent } from '@/components/ui/card';
+import { Card, CardContent } from '@/app/yeartracker/components/ui/card';
 
 const STORAGE_KEY = 'yearProgressState';
 const UPDATE_INTERVAL = 60000;
