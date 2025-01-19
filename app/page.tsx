@@ -46,8 +46,9 @@ export default function Home() {
             Product Manager, Tech-nerd, Amateur Coder
           </p>
          <p style={{ whiteSpace: 'pre-line' }} className="text-gray-600">
-  {`I'm Sriram (Shri - Rahhm), I build products, I cycle, I `}
-  <Link href="https://www.goodreads.com/user/show/103894258-sriram" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">love reading books</Link>
+  {`I'm Sriram (Shri - Rahhm),`} <Link href="https://www.sriramkj.com/builds" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">I build products</Link> {`, I cycle, I `}
+ 
+ <Link href="https://www.goodreads.com/user/show/103894258-sriram" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">love reading books</Link>
 
   {` and I have a great fondness for stand-up com(ics)edy.
 
