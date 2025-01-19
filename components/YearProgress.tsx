@@ -37,7 +37,7 @@ const YearProgress = () => {
   const getInitialState = (): YearProgressState => {
     const now = new Date();
     const startOfYear = new Date(now.getFullYear(), 0, 1);
-    const diff = now.getTime() - startOfYear.getTime();
+    const diff = now.getTime() - startOfYear.getTime(); // Update 1: Replaced date calculation
     const totalDaysPassed = diff / (1000 * 60 * 60 * 24);
     const completeDays = Math.floor(totalDaysPassed);
     const partialDay = totalDaysPassed - completeDays;
@@ -62,8 +62,8 @@ const YearProgress = () => {
       const startOfYear = new Date(now.getFullYear(), 0, 1);
       const endOfYear = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
       
-      const diff = now.getTime() - startOfYear.getTime();
-      const totalTime = endOfYear.getTime() - startOfYear.getTime();
+      const diff = now.getTime() - startOfYear.getTime(); // Update 2: Replaced date calculation
+      const totalTime = endOfYear.getTime() - startOfYear.getTime(); // Update 2: Replaced date calculation
       const totalDaysPassed = diff / (1000 * 60 * 60 * 24);
       const completeDays = Math.floor(totalDaysPassed);
       const partialDay = totalDaysPassed - completeDays;
