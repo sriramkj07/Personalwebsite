@@ -50,7 +50,7 @@ export default function Home() {
  
  <Link href="https://www.goodreads.com/user/show/103894258-sriram" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">love reading books</Link>
 
-  {` and I have a great fondness for stand-up com(ics)edy.
+  {` and I have a fondness for stand-up com(ics)edy.
 
      I currently build products at ServiceNow. I'm fascinated by powerful network effects enabled by tech and how it disrupts traditional markets. 
     
