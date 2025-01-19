@@ -20,9 +20,12 @@ export default function Essays() {
         </p>
         <h2 className="text-2xl font-bold mb-4">Business</h2>
         <ul className="list-disc pl-8 text-gray-700 space-y-4">
-          <li>
-<a href= "https://writing.nikunjk.com/p/product-management-prototype-management">Nikunj Kothari's Product Management ---> Prototype management</a>
-          </li>
+<li>
+  <a href="https://writing.nikunj.com/p/product-management-prototype-management" 
+     className="text-gray-700 hover:text-gray-900 hover:underline">
+    Nikunj Kothari's Product Management —> Prototype management
+  </a>
+</li>
         </ul>
       </div>
     </div>
