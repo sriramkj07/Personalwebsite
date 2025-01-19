@@ -90,18 +90,18 @@ const YearProgress = () => {
   }, []);
 
   const getDayIntensity = (dayNumber: number): string => {
-    if (dayNumber < state.daysElapsed) return 'bg-primary';
+    if (dayNumber < state.daysElapsed) return 'bg-green-600';
     if (dayNumber === state.daysElapsed) {
       const intensity = Math.floor(state.currentDayProgress * 4);
       switch (intensity) {
-        case 0: return 'bg-primary/30';
-        case 1: return 'bg-primary/50';
-        case 2: return 'bg-primary/70';
-        case 3: return 'bg-primary';
-        default: return 'bg-primary/30';
+        case 0: return 'bg-green-200';
+        case 1: return 'bg-green-300';
+        case 2: return 'bg-green-400';
+        case 3: return 'bg-green-500';
+        default: return 'bg-green-200';
       }
     }
-    return 'bg-muted';
+    return 'bg-gray-100';
   };
 
   const formatDate = (dayNumber: number): string => {
@@ -144,8 +144,8 @@ const YearProgress = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background p-4 flex justify-center items-center">
-      <Card className="bg-background text-foreground w-full max-w-6xl">
+    <div className="min-h-screen bg-white p-4 flex justify-center items-center">
+      <Card className="bg-white text-foreground w-full max-w-6xl">
         <CardContent>
           <div className="mb-8">
             <div className="text-xl mb-2">
@@ -184,11 +184,11 @@ const YearProgress = () => {
 
             <div className="flex items-center gap-2 mt-4 text-sm justify-end">
               <span>0%</span>
-              <div className="w-3 h-3 rounded-sm bg-muted" />
-              <div className="w-3 h-3 rounded-sm bg-primary/30" />
-              <div className="w-3 h-3 rounded-sm bg-primary/50" />
-              <div className="w-3 h-3 rounded-sm bg-primary/70" />
-              <div className="w-3 h-3 rounded-sm bg-primary" />
+              <div className="w-3 h-3 rounded-sm bg-gray-100" />
+              <div className="w-3 h-3 rounded-sm bg-green-200" />
+              <div className="w-3 h-3 rounded-sm bg-green-300" />
+              <div className="w-3 h-3 rounded-sm bg-green-400" />
+              <div className="w-3 h-3 rounded-sm bg-green-600" />
               <span>100%</span>
             </div>
           </div>
