@@ -48,8 +48,13 @@ export default function Home() {
          <p style={{ whiteSpace: 'pre-line' }} className="text-gray-600">
   {`I'm Sriram (Shri - Rahhm), I build products, I cycle, I `}
   <Link href="https://www.goodreads.com/user/show/103894258-sriram" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">love reading books</Link>
+
   {` and I have a great fondness for stand-up com(ics)edy.
-     I currently build products at ServiceNow. I'm fascinated by powerful network effects enabled by tech and how it disrupts traditional markets. I aspire to build such large scale platforms for the future.
+
+     I currently build products at ServiceNow. I'm fascinated by powerful network effects enabled by tech and how it disrupts traditional markets. 
+    
+    I aspire to build such large scale platforms for the future.
+
      I hope to write about some of these interests and showcase my `}
   <Link href="/builds" className="text-blue-600 hover:text-blue-800 hover:underline">builds</Link>
 </p>
