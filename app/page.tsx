@@ -58,12 +58,13 @@ export default function Home() {
           </p>
 <div>  <span className="text-gray-600"> I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad. 
         </span>  </div>
-  <Link href="/essays" className="text-blue-600 hover:text-blue-800">
+ <div> <Link href="/essays" className="text-blue-600 hover:text-blue-800">
     Essays
   </Link>
   <span className="text-gray-600">
     : I also collect some essays that I personally think are influential and will be timeless
-  </span>
+  </span> 
+</div>
 </div>
 </div>
       </div>
