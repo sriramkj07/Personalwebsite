@@ -21,19 +21,7 @@ export default function Essays() {
         <h2 className="text-2xl font-bold mb-4">Business</h2>
         <ul className="list-disc pl-8 text-gray-700 space-y-4">
           <li>
-            Stephen Elop's "Burning Platforms": Elop's call to action to Nokia on how they need to embrace a non-homegrown platform.
-          </li>
-          <li>
-            Steve Jobs "Top 100": Steve Jobs talking about his agenda for Apple's top 100 leaders internal event.
-          </li>
-          <li>
-            Steve Jobs negotiating ebook pricing: Part of the infamous email thread where Steve is negotiating iBook pricing/access.
-          </li>
-          <li>
-            Brad Garlinghouse "Peanut Butter" memo: The famous internal memo to Yahoo from then-SVP Garlinghouse on focusing more on fewer efforts and having clearer accountability.
-          </li>
-          <li>
-            Dave Goldberg to Michael Lynton on the state of the music industry: From the Sony hack, Goldberg shared this years ago when the hack was reported.
+<a href= "Nikunj Kothari's Product Management ---> Prototype management">https://writing.nikunjk.com/p/product-management-prototype-management</a>
           </li>
         </ul>
       </div>
