@@ -23,7 +23,7 @@ export default function Essays() {
 <li>
   <a href="https://writing.nikunj.com/p/product-management-prototype-management" 
      className="text-gray-700 hover:text-gray-900 hover:underline">
-    Nikunj Kothari's Product Management —> Prototype management
+    Nikunj Kothari's Product Management &rarr; Prototype management
   </a>
 </li>
         </ul>
