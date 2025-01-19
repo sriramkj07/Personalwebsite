@@ -1,13 +1,15 @@
 import './globals.css'
-import type { Metadata } from 'next'
 import { JetBrains_Mono } from 'next/font/google'
-
-const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'] })
-
-export const metadata: Metadata = {
-  title: 'Your Name - Personal Website',
-  description: 'Engineer, Founder and Investor',
+// app/layout.tsx
+export const metadata = {
+  title: 'Sriram Kothandaraman',
+  description: 'A personal website, thats all folks'
 }
+
+const jetbrainsMono = JetBrains_Mono({ 
+  subsets: ['latin'],
+  display: 'swap'
+})
 
 export default function RootLayout({
   children,
@@ -15,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={jetbrainsMono.className}>{children}</body>
+    <html lang="en" className={jetbrainsMono.className}>
+      <body>{children}</body>
     </html>
   )
 }
