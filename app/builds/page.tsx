@@ -25,7 +25,7 @@ export default function Builds() {
             </a>
 <div className="space-y-8">
           <div className="border rounded-lg p-6 hover:shadow-lg transition-shadow">
-            <h2 className="text-xl font-semibold mb-2">Year Tracker</h2>
+            <h2 className="text-xl font-semibold mb-2">Payanam</h2>
             <p className="text-gray-600 mb-4">
               An AI travel agent to help you plan, book, and supercharge your adventure
             </p>
