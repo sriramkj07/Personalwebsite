@@ -34,6 +34,8 @@ export default function Builds() {
             >
               View Project →
             </a>
+</div>
+</div>
           </div>
         </div>
       </div>
