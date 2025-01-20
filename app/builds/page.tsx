@@ -23,6 +23,17 @@ export default function Builds() {
             >
               View Project →
             </a>
+<div className="space-y-8">
+          <div className="border rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <h2 className="text-xl font-semibold mb-2">Year Tracker</h2>
+            <p className="text-gray-600 mb-4">
+              An AI travel agent to help you plan, book, and supercharge your adventure
+            </p>
+            <a href="https://payanamhq.com/" 
+              className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
+            >
+              View Project →
+            </a>
           </div>
         </div>
       </div>
