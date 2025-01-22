@@ -120,36 +120,48 @@ const YearProgress = () => {
 
   const generateGrid = () => {
     const days = [];
-    const totalDays = 365; // Total days in a year
-    const weeksNeeded = Math.ceil(totalDays / 7);
+    const startDate = new Date(new Date().getFullYear(), 0, 1);
+    const startOffset = startDate.getDay(); // 0 for Sunday, 1 for Monday, etc.
+    const totalDays = 365;
+    const weeksNeeded = Math.ceil((totalDays + startOffset) / 7);
     
-    for (let week = 0; week < weeksNeeded; week++) {
-      const weekDays = [];
-      for (let day = 0; day < 7; day++) {
-        const dayNumber = week * 7 + day;
-        if (dayNumber < totalDays) { // Only generate up to 365 days
-          const formattedDate = formatDate(dayNumber);
-          const completionPercent = dayNumber < state.daysElapsed ? 100 :
-                                   dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
-                                   0;
-          
-          weekDays.push(
-            <div
-              key={`day-${dayNumber}`}
-              className={`w-3 h-3 rounded-sm ${getDayIntensity(dayNumber)} transition-colors duration-200`}
-              title={`${formattedDate} - ${completionPercent}%`}
-            />
-          );
-        }
-      }
-      if (weekDays.length > 0) {
+    // Add empty cells for days before January 1st
+    const firstWeek = [];
+    for (let i = 0; i < startOffset; i++) {
+      firstWeek.push(
+        <div
+          key={`empty-${i}`}
+          className="w-3 h-3 opacity-0"
+        />
+      );
+    }
+    
+    // Add the actual days
+    for (let i = 0; i < totalDays; i++) {
+      const dayNumber = i;
+      const formattedDate = formatDate(dayNumber);
+      const completionPercent = dayNumber < state.daysElapsed ? 100 :
+                               dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
+                               0;
+      
+      firstWeek.push(
+        <div
+          key={`day-${dayNumber}`}
+          className={`w-3 h-3 rounded-sm ${getDayIntensity(dayNumber)} transition-colors duration-200`}
+          title={`${formattedDate} - ${completionPercent}%`}
+        />
+      );
+      
+      if ((i + startOffset + 1) % 7 === 0 || i === totalDays - 1) {
         days.push(
-          <div key={`week-${week}`} className="flex flex-col gap-1">
-            {weekDays}
+          <div key={`week-${Math.floor(i / 7)}`} className="flex flex-col gap-1">
+            {firstWeek}
           </div>
         );
+        firstWeek.length = 0;
       }
     }
+    
     return days;
   };
 
