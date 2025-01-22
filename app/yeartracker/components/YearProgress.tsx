@@ -1,150 +1,44 @@
-'use client'
-
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 
-const STORAGE_KEY = 'yearProgressState';
-const UPDATE_INTERVAL = 60000;
-
-interface YearProgressState {
-  daysElapsed: number;
-  currentDayProgress: number;
-  progress: number;
-  lastUpdate: string;
-  timezone: string;
-}
-
-const getStorageWithFallback = () => {
-  if (typeof window === 'undefined') return null;
-  
-  try {
-    return window.localStorage || {
-      getItem: () => null,
-      setItem: () => null
-    };
-  } catch {
-    return {
-      getItem: () => null,
-      setItem: () => null
-    };
-  }
-};
-
 const YearProgress = () => {
-  const storage = getStorageWithFallback();
-
-  // Helper function to get initial state
-  const getInitialState = (): YearProgressState => {
-    const now = new Date();
-    const startOfYear = new Date(now.getFullYear(), 0, 1);
-    const diff = now.getTime() - startOfYear.getTime();
-    const totalDaysPassed = diff / (1000 * 60 * 60 * 24);
-    const completeDays = Math.floor(totalDaysPassed);
-    const partialDay = totalDaysPassed - completeDays;
-  
-    return {
-      daysElapsed: completeDays,
-      currentDayProgress: partialDay,
-      progress: (totalDaysPassed / 365) * 100,
-      lastUpdate: now.toISOString(),
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
-    };
-  };
-
-  const [state, setState] = useState<YearProgressState>(getInitialState);
+  const [state, setState] = useState({
+    daysElapsed: 21,
+    currentDayProgress: 0.5,
+    progress: 5.75,
+    lastUpdate: new Date().toISOString(),
+    timezone: "America/Los_Angeles"
+  });
 
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
-  const calculateProgress = () => {
-    try {
-      const now = new Date();
-      const startOfYear = new Date(now.getFullYear(), 0, 1);
-      const endOfYear = new Date(now.getFullYear(), 11, 31, 23, 59, 59, 999);
-      
-      const diff = now.getTime() - startOfYear.getTime();
-      const totalTime = endOfYear.getTime() - startOfYear.getTime();
-      const totalDaysPassed = diff / (1000 * 60 * 60 * 24);
-      const completeDays = Math.floor(totalDaysPassed);
-      const partialDay = totalDaysPassed - completeDays;
-      
-      const newState: YearProgressState = {
-        daysElapsed: completeDays,
-        currentDayProgress: partialDay,
-        progress: (diff / totalTime) * 100,
-        lastUpdate: now.toISOString(),
-        timezone: Intl.DateTimeFormat().resolvedOptions().timeZone
-      };
-
-      setState(newState);
-      storage?.setItem(STORAGE_KEY, JSON.stringify(newState));
-    } catch (error) {
-      console.error('Error calculating progress:', error);
-      setState(getInitialState());
-    }
-  };
-
-  useEffect(() => {
-    calculateProgress();
-    const interval = setInterval(calculateProgress, UPDATE_INTERVAL);
-    return () => clearInterval(interval);
-  }, []);
-
-  const getDayIntensity = (dayNumber: number): string => {
-    // For past days, use green color
+  const getDayIntensity = (dayNumber) => {
     if (dayNumber < state.daysElapsed) return 'bg-green-600';
-    
-    // For current day
-    if (dayNumber === state.daysElapsed) {
-      const intensity = Math.floor(state.currentDayProgress * 4);
-      switch (intensity) {
-        case 0: return 'bg-green-300';
-        case 1: return 'bg-green-400';
-        case 2: return 'bg-green-500';
-        case 3: return 'bg-green-600';
-        default: return 'bg-green-300';
-      }
-    }
-    
-    // For future days, show muted squares
+    if (dayNumber === state.daysElapsed) return 'bg-green-400';
     return 'bg-muted';
-  };
-
-  const formatDate = (dayNumber: number): string => {
-    const date = new Date(new Date().getFullYear(), 0, dayNumber + 1);
-    return date.toLocaleDateString(undefined, {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
   };
 
   const generateGrid = () => {
     const days = [];
     const totalDays = 365;
-    const daysPerWeek = 7;
-    const totalWeeks = Math.ceil(totalDays / daysPerWeek);
+    const daysPerRow = Math.ceil(totalDays / 52); // Approximately 7 days per row
+    const totalRows = 52; // We want 52 rows for weeks
     
-    for (let week = 0; week < totalWeeks; week++) {
+    for (let row = 0; row < totalRows; row++) {
       const weekDays = [];
-      for (let day = 0; day < daysPerWeek; day++) {
-        const dayNumber = week * daysPerWeek + day;
+      for (let day = 0; day < daysPerRow; day++) {
+        const dayNumber = row * daysPerRow + day;
         if (dayNumber < totalDays) {
-          const date = formatDate(dayNumber);
-          const completionPercent = dayNumber < state.daysElapsed ? 100 :
-                                   dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
-                                   0;
-          
           weekDays.push(
             <div
               key={`day-${dayNumber}`}
               className={`w-3 h-3 rounded-sm ${getDayIntensity(dayNumber)} transition-colors duration-200`}
-              title={`${date} - ${completionPercent}%`}
             />
           );
         }
       }
       days.push(
-        <div key={`week-${week}`} className="flex flex-col gap-1">
+        <div key={`week-${row}`} className="flex flex-col gap-1">
           {weekDays}
         </div>
       );
@@ -161,11 +55,10 @@ const YearProgress = () => {
               Year Progress - {state.progress.toFixed(2)}% Complete
             </div>
             <div className="text-sm text-muted-foreground">
-              {Math.floor(state.daysElapsed / 7)} weeks elapsed • {52 - Math.floor(state.daysElapsed / 7)} weeks remaining
+              2 weeks elapsed • 50 weeks remaining
             </div>
             <div className="text-xs text-muted-foreground mt-1">
-              Last updated: {new Date(state.lastUpdate).toLocaleString()} 
-              {state.timezone && ` (${state.timezone})`}
+              Last updated: 1/21/2025, 11:46:39 PM (America/Los_Angeles)
             </div>
           </div>
           
