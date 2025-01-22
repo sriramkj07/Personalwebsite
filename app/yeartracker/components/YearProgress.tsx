@@ -91,18 +91,31 @@ const YearProgress = () => {
   }, []);
 
   const getDayIntensity = (dayNumber: number): string => {
-    if (dayNumber < state.daysElapsed) return 'bg-primary';
+    const date = new Date(new Date().getFullYear(), 0, dayNumber + 1);
+    const month = date.getMonth();
+    
+    // For past days, use green color
+    if (dayNumber < state.daysElapsed) return 'bg-green-600';
+    
+    // For current day
     if (dayNumber === state.daysElapsed) {
       const intensity = Math.floor(state.currentDayProgress * 4);
       switch (intensity) {
-        case 0: return 'bg-primary/30';
-        case 1: return 'bg-primary/50';
-        case 2: return 'bg-primary/70';
-        case 3: return 'bg-primary';
-        default: return 'bg-primary/30';
+        case 0: return 'bg-green-300';
+        case 1: return 'bg-green-400';
+        case 2: return 'bg-green-500';
+        case 3: return 'bg-green-600';
+        default: return 'bg-green-300';
       }
     }
-    return 'bg-muted';
+    
+    // For November and December, show empty squares
+    if (month === 10 || month === 11) { // 10 is November, 11 is December
+      return 'bg-muted';
+    }
+    
+    // Hide squares for other future months
+    return 'opacity-0';
   };
 
   const formatDate = (dayNumber: number): string => {
@@ -186,10 +199,10 @@ const YearProgress = () => {
             <div className="flex items-center gap-2 mt-4 text-sm justify-end">
               <span>0%</span>
               <div className="w-3 h-3 rounded-sm bg-muted" />
-              <div className="w-3 h-3 rounded-sm bg-primary/30" />
-              <div className="w-3 h-3 rounded-sm bg-primary/50" />
-              <div className="w-3 h-3 rounded-sm bg-primary/70" />
-              <div className="w-3 h-3 rounded-sm bg-primary" />
+              <div className="w-3 h-3 rounded-sm bg-green-300" />
+              <div className="w-3 h-3 rounded-sm bg-green-400" />
+              <div className="w-3 h-3 rounded-sm bg-green-500" />
+              <div className="w-3 h-3 rounded-sm bg-green-600" />
               <span>100%</span>
             </div>
           </div>
@@ -200,4 +213,3 @@ const YearProgress = () => {
 };
 
 export default YearProgress;
-
