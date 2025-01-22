@@ -92,7 +92,6 @@ const YearProgress = () => {
 
   const getDayIntensity = (dayNumber: number): string => {
     const date = new Date(new Date().getFullYear(), 0, dayNumber + 1);
-    const month = date.getMonth();
     
     // For past days, use green color
     if (dayNumber < state.daysElapsed) return 'bg-green-600';
@@ -109,13 +108,8 @@ const YearProgress = () => {
       }
     }
     
-    // For November and December, show empty squares
-    if (month === 10 || month === 11) { // 10 is November, 11 is December
-      return 'bg-muted';
-    }
-    
-    // Hide squares for other future months
-    return 'opacity-0';
+    // For all future days, show muted squares
+    return 'bg-muted';
   };
 
   const formatDate = (dayNumber: number): string => {
@@ -135,7 +129,12 @@ const YearProgress = () => {
       const weekDays = [];
       for (let day = 0; day < 7; day++) {
         const dayNumber = week * 7 + day;
-        const date = formatDate(dayNumber);
+        const date = new Date(new Date().getFullYear(), 0, dayNumber + 1);
+        
+        // Skip days that fall outside the year
+        if (date.getFullYear() > new Date().getFullYear()) continue;
+        
+        const formattedDate = formatDate(dayNumber);
         const completionPercent = dayNumber < state.daysElapsed ? 100 :
                                  dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
                                  0;
@@ -144,7 +143,7 @@ const YearProgress = () => {
           <div
             key={`day-${dayNumber}`}
             className={`w-3 h-3 rounded-sm ${getDayIntensity(dayNumber)} transition-colors duration-200`}
-            title={`${date} - ${completionPercent}%`}
+            title={`${formattedDate} - ${completionPercent}%`}
           />
         );
       }
