@@ -91,8 +91,6 @@ const YearProgress = () => {
   }, []);
 
   const getDayIntensity = (dayNumber: number): string => {
-    const date = new Date(new Date().getFullYear(), 0, dayNumber + 1);
-    
     // For past days, use green color
     if (dayNumber < state.daysElapsed) return 'bg-green-600';
     
@@ -123,17 +121,12 @@ const YearProgress = () => {
 
   const generateGrid = () => {
     const days = [];
-    const totalWeeks = 53;
+    const totalWeeks = 52; // Changed from 53 to 52 for exact year representation
     
     for (let week = 0; week < totalWeeks; week++) {
       const weekDays = [];
       for (let day = 0; day < 7; day++) {
         const dayNumber = week * 7 + day;
-        const date = new Date(new Date().getFullYear(), 0, dayNumber + 1);
-        
-        // Skip days that fall outside the year
-        if (date.getFullYear() > new Date().getFullYear()) continue;
-        
         const formattedDate = formatDate(dayNumber);
         const completionPercent = dayNumber < state.daysElapsed ? 100 :
                                  dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
