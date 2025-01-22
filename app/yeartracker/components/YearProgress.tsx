@@ -54,7 +54,6 @@ const YearProgress = () => {
   const [state, setState] = useState<YearProgressState>(getInitialState);
 
   const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-  const weekdays = ['Mon', 'Wed', 'Fri'];
 
   const calculateProgress = () => {
     try {
@@ -106,7 +105,7 @@ const YearProgress = () => {
       }
     }
     
-    // For all future days, show muted squares
+    // For future days, show muted squares
     return 'bg-muted';
   };
 
@@ -121,30 +120,35 @@ const YearProgress = () => {
 
   const generateGrid = () => {
     const days = [];
-    const totalWeeks = 52; // Changed from 53 to 52 for exact year representation
+    const totalDays = 365; // Total days in a year
+    const weeksNeeded = Math.ceil(totalDays / 7);
     
-    for (let week = 0; week < totalWeeks; week++) {
+    for (let week = 0; week < weeksNeeded; week++) {
       const weekDays = [];
       for (let day = 0; day < 7; day++) {
         const dayNumber = week * 7 + day;
-        const formattedDate = formatDate(dayNumber);
-        const completionPercent = dayNumber < state.daysElapsed ? 100 :
-                                 dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
-                                 0;
-        
-        weekDays.push(
-          <div
-            key={`day-${dayNumber}`}
-            className={`w-3 h-3 rounded-sm ${getDayIntensity(dayNumber)} transition-colors duration-200`}
-            title={`${formattedDate} - ${completionPercent}%`}
-          />
+        if (dayNumber < totalDays) { // Only generate up to 365 days
+          const formattedDate = formatDate(dayNumber);
+          const completionPercent = dayNumber < state.daysElapsed ? 100 :
+                                   dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
+                                   0;
+          
+          weekDays.push(
+            <div
+              key={`day-${dayNumber}`}
+              className={`w-3 h-3 rounded-sm ${getDayIntensity(dayNumber)} transition-colors duration-200`}
+              title={`${formattedDate} - ${completionPercent}%`}
+            />
+          );
+        }
+      }
+      if (weekDays.length > 0) {
+        days.push(
+          <div key={`week-${week}`} className="flex flex-col gap-1">
+            {weekDays}
+          </div>
         );
       }
-      days.push(
-        <div key={`week-${week}`} className="flex flex-col gap-1">
-          {weekDays}
-        </div>
-      );
     }
     return days;
   };
@@ -175,14 +179,7 @@ const YearProgress = () => {
             </div>
 
             <div className="flex">
-              <div className="flex flex-col justify-between pr-4 text-sm">
-                {weekdays.map((day, i) => (
-                  <div key={`weekday-${i}`} className="h-3 flex items-center">
-                    {day}
-                  </div>
-                ))}
-              </div>
-
+              <div className="w-12"></div>
               <div className="flex gap-1 flex-1">
                 {generateGrid()}
               </div>
