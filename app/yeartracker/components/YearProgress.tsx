@@ -120,48 +120,35 @@ const YearProgress = () => {
 
   const generateGrid = () => {
     const days = [];
-    const startDate = new Date(new Date().getFullYear(), 0, 1);
-    const startOffset = startDate.getDay(); // 0 for Sunday, 1 for Monday, etc.
     const totalDays = 365;
-    const weeksNeeded = Math.ceil((totalDays + startOffset) / 7);
+    const daysPerWeek = 7;
+    const totalWeeks = Math.ceil(totalDays / daysPerWeek);
     
-    // Add empty cells for days before January 1st
-    const firstWeek = [];
-    for (let i = 0; i < startOffset; i++) {
-      firstWeek.push(
-        <div
-          key={`empty-${i}`}
-          className="w-3 h-3 opacity-0"
-        />
-      );
-    }
-    
-    // Add the actual days
-    for (let i = 0; i < totalDays; i++) {
-      const dayNumber = i;
-      const formattedDate = formatDate(dayNumber);
-      const completionPercent = dayNumber < state.daysElapsed ? 100 :
-                               dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
-                               0;
-      
-      firstWeek.push(
-        <div
-          key={`day-${dayNumber}`}
-          className={`w-3 h-3 rounded-sm ${getDayIntensity(dayNumber)} transition-colors duration-200`}
-          title={`${formattedDate} - ${completionPercent}%`}
-        />
-      );
-      
-      if ((i + startOffset + 1) % 7 === 0 || i === totalDays - 1) {
-        days.push(
-          <div key={`week-${Math.floor(i / 7)}`} className="flex flex-col gap-1">
-            {firstWeek}
-          </div>
-        );
-        firstWeek.length = 0;
+    for (let week = 0; week < totalWeeks; week++) {
+      const weekDays = [];
+      for (let day = 0; day < daysPerWeek; day++) {
+        const dayNumber = week * daysPerWeek + day;
+        if (dayNumber < totalDays) {
+          const date = formatDate(dayNumber);
+          const completionPercent = dayNumber < state.daysElapsed ? 100 :
+                                   dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
+                                   0;
+          
+          weekDays.push(
+            <div
+              key={`day-${dayNumber}`}
+              className={`w-3 h-3 rounded-sm ${getDayIntensity(dayNumber)} transition-colors duration-200`}
+              title={`${date} - ${completionPercent}%`}
+            />
+          );
+        }
       }
+      days.push(
+        <div key={`week-${week}`} className="flex flex-col gap-1">
+          {weekDays}
+        </div>
+      );
     }
-    
     return days;
   };
 
