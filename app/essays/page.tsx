@@ -27,6 +27,14 @@ If you know of an interesting essay that can breakdown complex ideas into simple
      className="text-gray-700 hover:text-gray-900 hover:underline">
     Nikunj Kothari's Product Management &rarr; Prototype management
   </a>
+ <a href="https://www.dreamsongs.com/WorseIsBetter.html" 
+     className="text-gray-700 hover:text-gray-900 hover:underline">
+   Worse is Better by Richard P. Gabriel
+  </a>
+ <a href="https://blog.samaltman.com/productivity" 
+     className="text-gray-700 hover:text-gray-900 hover:underline">
+   Productivity by Sam Altman
+  </a>
 </li>
         </ul>
       </div>
