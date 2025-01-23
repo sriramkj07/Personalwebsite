@@ -3,6 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 
+// If you're not actually using these Card components, you can remove them 
+// or replace them with plain <div> containers.
+
 const STORAGE_KEY = 'yearProgressState';
 const UPDATE_INTERVAL = 60000;
 
@@ -16,14 +19,14 @@ const GITHUB_COLORS = [
 ];
 
 interface YearProgressState {
-  daysElapsed: number;        
-  currentDayProgress: number; 
-  progress: number;           
-  lastUpdate: string;         
-  timezone: string;           
+  daysElapsed: number;        // how many whole days so far
+  currentDayProgress: number; // fraction of today's progress
+  progress: number;           // 0–100% of year done
+  lastUpdate: string;
+  timezone: string;
 }
 
-/** Safely retrieve window.localStorage if available */
+// Safely retrieve window.localStorage if available
 const getStorageWithFallback = () => {
   if (typeof window === 'undefined') return null;
   try {
@@ -33,6 +36,7 @@ const getStorageWithFallback = () => {
   }
 };
 
+// Compute how many days have elapsed in the current year
 const getDaysElapsedThisYear = (now: Date) => {
   const year = now.getFullYear();
   const startOfYear = new Date(year, 0, 1);
@@ -40,9 +44,10 @@ const getDaysElapsedThisYear = (now: Date) => {
   return diff / (1000 * 60 * 60 * 24);
 };
 
-const YearProgress = () => {
+export default function YearProgress() {
   const storage = getStorageWithFallback();
 
+  // Create an initial progress state
   const getInitialState = (): YearProgressState => {
     const now = new Date();
     const totalDays = getDaysElapsedThisYear(now);
@@ -59,6 +64,7 @@ const YearProgress = () => {
 
   const [state, setState] = useState<YearProgressState>(getInitialState);
 
+  // Update progress every minute
   const calculateProgress = () => {
     try {
       const now = new Date();
@@ -94,30 +100,30 @@ const YearProgress = () => {
     return () => clearInterval(timer);
   }, []);
 
-  // Layout config
-  const cellSize = 10;
-  const cellGap = 2;
+  /** Layout/config similar to GitHub’s style */
+  const cellSize = 11; 
+  const cellGap = 2;   
   const numRows = 7;
   const currentYear = new Date().getFullYear();
+
+  // Sunday=0, Monday=1, etc. Used to offset the top‐left cell
   const firstDayOffset = new Date(currentYear, 0, 1).getDay();
 
-  // figure out how many days from Jan1 to Dec31
+  // Day # for Dec 31
   const dec31 = new Date(currentYear, 11, 31);
   const dayNumberDec31 = Math.floor(
     (dec31.getTime() - new Date(currentYear, 0, 1).getTime()) / (1000 * 60 * 60 * 24)
   );
-  // which column is Dec31 in?
   const lastColIndex = Math.floor((dayNumberDec31 + firstDayOffset) / numRows);
-  const totalCols = lastColIndex + 1; // columns from 0..lastColIndex
+  const totalCols = lastColIndex + 1;
 
+  // Color function – future => light grey, partial => mid green, past => dark green
   const getCellColor = (dayNumber: number) => {
     if (dayNumber < state.daysElapsed) {
       return GITHUB_COLORS[4]; // darkest green
     } else if (dayNumber === state.daysElapsed) {
-      // partial
       const intensity = Math.floor(state.currentDayProgress * 4); // 0..3
-      // map that to one of the “middle” greens
-      // if 0 => index=1, if 3 => index=4 => darkest
+      // shift that into the scale [1..4]
       const colorIndex = Math.min(4, Math.max(1, intensity + 1));
       return GITHUB_COLORS[colorIndex];
     } else {
@@ -125,16 +131,18 @@ const YearProgress = () => {
     }
   };
 
+  // For the tooltip, e.g. "January 3, 2025"
   const formatDate = (dayNumber: number) => {
     const date = new Date(currentYear, 0, dayNumber + 1);
+    // Long month format, e.g. "January 3, 2025"
     return date.toLocaleDateString(undefined, {
       year: 'numeric',
-      month: 'short',
+      month: 'long',
       day: 'numeric'
     });
   };
 
-  /** Render the 7-row x totalCols grid */
+  // Render the 7-row x totalCols grid
   const generateGrid = () => {
     const rows = [];
     for (let row = 0; row < numRows; row++) {
@@ -152,6 +160,7 @@ const YearProgress = () => {
                 backgroundColor: getCellColor(dayNumber),
                 borderRadius: 2
               }}
+              // Tooltip text:
               title={dateStr}
             />
           );
@@ -174,7 +183,7 @@ const YearProgress = () => {
     return rows;
   };
 
-  /** Month labels absolutely-positioned above columns */
+  // Absolutely-positioned month labels
   const monthLabels = () => {
     const labels = [];
     for (let m = 0; m < 12; m++) {
@@ -185,9 +194,11 @@ const YearProgress = () => {
       );
       const colIndex = Math.floor((dayIndex + firstDayOffset) / numRows);
       if (colIndex < 0 || colIndex >= totalCols) continue;
-      
+
       const leftOffset = colIndex * (cellSize + cellGap);
+      // e.g. "Jan", "Feb"
       const monthName = firstOfMonth.toLocaleString(undefined, { month: 'short' });
+
       labels.push(
         <div
           key={`month-${m}`}
@@ -206,12 +217,14 @@ const YearProgress = () => {
     return labels;
   };
 
+  // Figure out overall width/height so we can position everything neatly
   const gridWidth = totalCols * (cellSize + cellGap) - cellGap;
   const gridHeight = numRows * (cellSize + cellGap) - cellGap;
 
   return (
-    <div className="min-h-screen bg-background p-4 flex justify-center items-center">
-      <Card className="bg-background text-foreground w-full max-w-5xl">
+    <div className="min-h-screen bg-background p-8 flex justify-center items-center">
+      {/* No more max-w-5xl: let the grid fill the space */}
+      <Card className="bg-background text-foreground w-auto border shadow p-4">
         <CardContent>
           <div className="mb-6">
             <div className="text-lg mb-1">
@@ -226,13 +239,14 @@ const YearProgress = () => {
             </div>
           </div>
 
+          {/* The grid area */}
           <div style={{ position: 'relative', width: gridWidth }}>
             {/* Month labels row */}
             <div style={{ position: 'relative', height: 15, marginBottom: 4 }}>
               {monthLabels()}
             </div>
 
-            {/* The main grid */}
+            {/* The main 7xN grid */}
             <div
               style={{
                 display: 'flex',
@@ -266,6 +280,4 @@ const YearProgress = () => {
       </Card>
     </div>
   );
-};
-
-export default YearProgress;
+}
