@@ -115,19 +115,19 @@ const YearProgress = () => {
   };
 
   const generateGrid = () => {
-    const days = [];
-    // Fixed number of columns (7) and rows (53) to match GitHub's layout
-    const columns = 7;
-    const rows = 53;
+    const rows = [];
+    // Fixed number of rows (7) and columns (53) to match GitHub's layout
+    const numRows = 7;
+    const numCols = 53;
     
     // Calculate the first day of the year offset
     const firstDayOffset = new Date(new Date().getFullYear(), 0, 1).getDay();
     
-    // Generate the grid
-    for (let col = 0; col < columns; col++) {
-      const weekDays = [];
-      for (let row = 0; row < rows; row++) {
-        const dayNumber = row * columns + col - firstDayOffset;
+    // Generate the grid row by row
+    for (let row = 0; row < numRows; row++) {
+      const rowDays = [];
+      for (let col = 0; col < numCols; col++) {
+        const dayNumber = col * numRows + row - firstDayOffset;
         
         if (dayNumber >= 0) {
           const date = formatDate(dayNumber);
@@ -135,7 +135,7 @@ const YearProgress = () => {
                                    dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
                                    0;
           
-          weekDays.push(
+          rowDays.push(
             <div
               key={`day-${dayNumber}`}
               className={`w-3 h-3 rounded-sm ${getDayIntensity(dayNumber)} transition-colors duration-200`}
@@ -143,21 +143,21 @@ const YearProgress = () => {
             />
           );
         } else {
-          weekDays.push(
+          rowDays.push(
             <div
-              key={`empty-${col}-${row}`}
+              key={`empty-${row}-${col}`}
               className="w-3 h-3"
             />
           );
         }
       }
-      days.push(
-        <div key={`week-${col}`} className="flex flex-col gap-1">
-          {weekDays}
+      rows.push(
+        <div key={`row-${row}`} className="flex gap-1">
+          {rowDays}
         </div>
       );
     }
-    return days;
+    return rows;
   };
 
   return (
@@ -185,9 +185,9 @@ const YearProgress = () => {
               ))}
             </div>
 
-            <div className="flex">
+            <div className="flex flex-col">
               <div className="w-12"></div>
-              <div className="flex gap-1 flex-1">
+              <div className="flex flex-col gap-1">
                 {generateGrid()}
               </div>
             </div>
