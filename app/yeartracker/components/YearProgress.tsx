@@ -3,6 +3,9 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent } from "@/components/ui/card";
 
+// If you're not actually using these Card components, you can remove them 
+// or replace them with plain <div> containers.
+
 const STORAGE_KEY = 'yearProgressState';
 const UPDATE_INTERVAL = 60000;
 
@@ -16,9 +19,9 @@ const GITHUB_COLORS = [
 ];
 
 interface YearProgressState {
-  daysElapsed: number;
-  currentDayProgress: number;
-  progress: number;
+  daysElapsed: number;        // how many whole days so far
+  currentDayProgress: number; // fraction of today's progress
+  progress: number;           // 0–100% of year done
   lastUpdate: string;
   timezone: string;
 }
@@ -33,6 +36,7 @@ const getStorageWithFallback = () => {
   }
 };
 
+// Compute how many days have elapsed in the current year
 const getDaysElapsedThisYear = (now: Date) => {
   const year = now.getFullYear();
   const startOfYear = new Date(year, 0, 1);
@@ -96,12 +100,9 @@ export default function YearProgress() {
     return () => clearInterval(timer);
   }, []);
 
-  /** 
-   * Make each cell bigger: 
-   * Increase from 11px to 14px, and keep a small gap 
-   */
-  const cellSize = 14;
-  const cellGap = 2;
+  /** Layout/config similar to GitHub’s style */
+  const cellSize = 11; 
+  const cellGap = 2;   
   const numRows = 7;
   const currentYear = new Date().getFullYear();
 
@@ -116,6 +117,7 @@ export default function YearProgress() {
   const lastColIndex = Math.floor((dayNumberDec31 + firstDayOffset) / numRows);
   const totalCols = lastColIndex + 1;
 
+  // Color function – future => light grey, partial => mid green, past => dark green
   const getCellColor = (dayNumber: number) => {
     if (dayNumber < state.daysElapsed) {
       return GITHUB_COLORS[4]; // darkest green
@@ -129,9 +131,10 @@ export default function YearProgress() {
     }
   };
 
-  // Show "January 3, 2025" style text
+  // For the tooltip, e.g. "January 3, 2025"
   const formatDate = (dayNumber: number) => {
     const date = new Date(currentYear, 0, dayNumber + 1);
+    // Long month format, e.g. "January 3, 2025"
     return date.toLocaleDateString(undefined, {
       year: 'numeric',
       month: 'long',
@@ -157,6 +160,7 @@ export default function YearProgress() {
                 backgroundColor: getCellColor(dayNumber),
                 borderRadius: 2
               }}
+              // Tooltip text:
               title={dateStr}
             />
           );
@@ -192,7 +196,9 @@ export default function YearProgress() {
       if (colIndex < 0 || colIndex >= totalCols) continue;
 
       const leftOffset = colIndex * (cellSize + cellGap);
+      // e.g. "Jan", "Feb"
       const monthName = firstOfMonth.toLocaleString(undefined, { month: 'short' });
+
       labels.push(
         <div
           key={`month-${m}`}
@@ -211,14 +217,14 @@ export default function YearProgress() {
     return labels;
   };
 
-  // Overall width/height in px
+  // Figure out overall width/height so we can position everything neatly
   const gridWidth = totalCols * (cellSize + cellGap) - cellGap;
   const gridHeight = numRows * (cellSize + cellGap) - cellGap;
 
   return (
-    <div className="min-h-screen bg-background p-8">
-      {/* Make the card take full width so it expands */}
-      <Card className="bg-background text-foreground w-full border shadow p-8">
+    <div className="min-h-screen bg-background p-8 flex justify-center items-center">
+      {/* No more max-w-5xl: let the grid fill the space */}
+      <Card className="bg-background text-foreground w-auto border shadow p-4">
         <CardContent>
           <div className="mb-6">
             <div className="text-lg mb-1">
@@ -233,14 +239,14 @@ export default function YearProgress() {
             </div>
           </div>
 
-          {/* Main grid area */}
+          {/* The grid area */}
           <div style={{ position: 'relative', width: gridWidth }}>
             {/* Month labels row */}
             <div style={{ position: 'relative', height: 15, marginBottom: 4 }}>
               {monthLabels()}
             </div>
 
-            {/* The 7xN grid */}
+            {/* The main 7xN grid */}
             <div
               style={{
                 display: 'flex',
