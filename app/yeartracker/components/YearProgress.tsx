@@ -33,7 +33,6 @@ const getStorageWithFallback = () => {
 const YearProgress = () => {
   const storage = getStorageWithFallback();
 
-  // Helper function to get initial state
   const getInitialState = (): YearProgressState => {
     const now = new Date();
     const startOfYear = new Date(now.getFullYear(), 0, 1);
@@ -90,10 +89,8 @@ const YearProgress = () => {
   }, []);
 
   const getDayIntensity = (dayNumber: number): string => {
-    // For past days, use green color
     if (dayNumber < state.daysElapsed) return 'bg-green-600';
     
-    // For current day
     if (dayNumber === state.daysElapsed) {
       const intensity = Math.floor(state.currentDayProgress * 4);
       switch (intensity) {
@@ -105,7 +102,6 @@ const YearProgress = () => {
       }
     }
     
-    // For future days, show muted squares
     return 'bg-muted';
   };
 
@@ -120,15 +116,20 @@ const YearProgress = () => {
 
   const generateGrid = () => {
     const days = [];
-    const totalDays = 365;
+    const now = new Date();
+    const year = now.getFullYear();
+    const isLeapYear = new Date(year, 1, 29).getDate() === 29;
+    const totalDays = isLeapYear ? 366 : 365;
+    const firstDayOffset = new Date(year, 0, 1).getDay();
     const daysPerWeek = 7;
-    const totalWeeks = Math.ceil(totalDays / daysPerWeek);
+    const totalWeeks = Math.ceil((totalDays + firstDayOffset) / daysPerWeek);
     
     for (let week = 0; week < totalWeeks; week++) {
       const weekDays = [];
       for (let day = 0; day < daysPerWeek; day++) {
-        const dayNumber = week * daysPerWeek + day;
-        if (dayNumber < totalDays) {
+        const dayNumber = week * daysPerWeek + day - firstDayOffset;
+        
+        if (dayNumber >= 0 && dayNumber < totalDays) {
           const date = formatDate(dayNumber);
           const completionPercent = dayNumber < state.daysElapsed ? 100 :
                                    dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
@@ -139,6 +140,13 @@ const YearProgress = () => {
               key={`day-${dayNumber}`}
               className={`w-3 h-3 rounded-sm ${getDayIntensity(dayNumber)} transition-colors duration-200`}
               title={`${date} - ${completionPercent}%`}
+            />
+          );
+        } else {
+          weekDays.push(
+            <div
+              key={`empty-${week}-${day}`}
+              className="w-3 h-3"
             />
           );
         }
