@@ -116,20 +116,20 @@ const YearProgress = () => {
 
   const generateGrid = () => {
     const days = [];
-    const now = new Date();
-    const year = now.getFullYear();
-    const isLeapYear = new Date(year, 1, 29).getDate() === 29;
-    const totalDays = isLeapYear ? 366 : 365;
-    const firstDayOffset = new Date(year, 0, 1).getDay();
-    const daysPerWeek = 7;
-    const totalWeeks = Math.ceil((totalDays + firstDayOffset) / daysPerWeek);
+    // Fixed number of columns (7) and rows (53) to match GitHub's layout
+    const columns = 7;
+    const rows = 53;
     
-    for (let week = 0; week < totalWeeks; week++) {
+    // Calculate the first day of the year offset
+    const firstDayOffset = new Date(new Date().getFullYear(), 0, 1).getDay();
+    
+    // Generate the grid
+    for (let col = 0; col < columns; col++) {
       const weekDays = [];
-      for (let day = 0; day < daysPerWeek; day++) {
-        const dayNumber = week * daysPerWeek + day - firstDayOffset;
+      for (let row = 0; row < rows; row++) {
+        const dayNumber = row * columns + col - firstDayOffset;
         
-        if (dayNumber >= 0 && dayNumber < totalDays) {
+        if (dayNumber >= 0) {
           const date = formatDate(dayNumber);
           const completionPercent = dayNumber < state.daysElapsed ? 100 :
                                    dayNumber === state.daysElapsed ? (state.currentDayProgress * 100).toFixed(1) :
@@ -145,14 +145,14 @@ const YearProgress = () => {
         } else {
           weekDays.push(
             <div
-              key={`empty-${week}-${day}`}
+              key={`empty-${col}-${row}`}
               className="w-3 h-3"
             />
           );
         }
       }
       days.push(
-        <div key={`week-${week}`} className="flex flex-col gap-1">
+        <div key={`week-${col}`} className="flex flex-col gap-1">
           {weekDays}
         </div>
       );
