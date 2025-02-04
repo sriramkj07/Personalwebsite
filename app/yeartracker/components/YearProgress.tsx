@@ -257,6 +257,15 @@ export default function YearProgress() {
                />
              ))}
              <span className="text-xs text-muted-foreground">More</span>
+// ... keep all existing imports and code ...
+
+return (
+  <div className="min-h-screen w-full flex items-center justify-center p-4">
+    <Card className="w-full max-w-2xl bg-background text-foreground shadow-sm">
+      {/* Rest of the CardContent remains exactly the same */}
+    </Card>
+  </div>
+)
            </div>
          </div>
        </div>
