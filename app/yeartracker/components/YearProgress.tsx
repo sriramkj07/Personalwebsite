@@ -214,62 +214,55 @@ export default function YearProgress() {
  const gridHeight = numRows * (cellSize + cellGap) - cellGap
 
  return (
-   <Card className="w-full max-w-2xl mx-auto bg-background text-foreground shadow-sm">
-     <CardContent className="p-4 sm:p-6" id="year-progress-container">
-       <div className="space-y-2">
-         <div className="text-lg sm:text-xl font-medium">
-           Year Progress – {state.progress.toFixed(2)}% Complete
-         </div>
-         <div className="text-sm text-muted-foreground">
-           {Math.floor(state.daysElapsed / 7)} weeks elapsed • {52 - Math.floor(state.daysElapsed / 7)} weeks remaining
-         </div>
-         <div className="text-xs text-muted-foreground">
-           Last updated: {new Date(state.lastUpdate).toLocaleString()}
-           {state.timezone && ` (${state.timezone})`}
-         </div>
-       </div>
-
-       <div className="mt-6 overflow-x-auto pb-4">
-         <div className="min-w-[280px]" style={{ width: gridWidth }}>
-           <div className="relative h-5 mb-1">{monthLabels()}</div>
-           <div
-             className="flex flex-col"
-             style={{
-               gap: cellGap,
-               width: gridWidth,
-               height: gridHeight,
-             }}
-           >
-             {generateGrid()}
+   <div className="min-h-screen w-full flex items-center justify-center p-4">
+     <Card className="w-full max-w-2xl bg-background text-foreground shadow-sm">
+       <CardContent className="p-4 sm:p-6" id="year-progress-container">
+         <div className="space-y-2">
+           <div className="text-lg sm:text-xl font-medium">
+             Year Progress – {state.progress.toFixed(2)}% Complete
            </div>
-
-           <div className="flex items-center gap-2 justify-end mt-4">
-             <span className="text-xs text-muted-foreground">Less</span>
-             {GITHUB_COLORS.map((color, idx) => (
-               <div
-                 key={`legend-${idx}`}
-                 className="rounded-sm"
-                 style={{
-                   width: cellSize,
-                   height: cellSize,
-                   backgroundColor: color,
-                 }}
-               />
-             ))}
-             <span className="text-xs text-muted-foreground">More</span>
-// ... keep all existing imports and code ...
-
-return (
-  <div className="min-h-screen w-full flex items-center justify-center p-4">
-    <Card className="w-full max-w-2xl bg-background text-foreground shadow-sm">
-      {/* Rest of the CardContent remains exactly the same */}
-    </Card>
-  </div>
-)
+           <div className="text-sm text-muted-foreground">
+             {Math.floor(state.daysElapsed / 7)} weeks elapsed • {52 - Math.floor(state.daysElapsed / 7)} weeks remaining
+           </div>
+           <div className="text-xs text-muted-foreground">
+             Last updated: {new Date(state.lastUpdate).toLocaleString()}
+             {state.timezone && ` (${state.timezone})`}
            </div>
          </div>
-       </div>
-     </CardContent>
-   </Card>
+
+         <div className="mt-6 overflow-x-auto pb-4">
+           <div className="min-w-[280px]" style={{ width: gridWidth }}>
+             <div className="relative h-5 mb-1">{monthLabels()}</div>
+             <div
+               className="flex flex-col"
+               style={{
+                 gap: cellGap,
+                 width: gridWidth,
+                 height: gridHeight,
+               }}
+             >
+               {generateGrid()}
+             </div>
+
+             <div className="flex items-center gap-2 justify-end mt-4">
+               <span className="text-xs text-muted-foreground">Less</span>
+               {GITHUB_COLORS.map((color, idx) => (
+                 <div
+                   key={`legend-${idx}`}
+                   className="rounded-sm"
+                   style={{
+                     width: cellSize,
+                     height: cellSize,
+                     backgroundColor: color,
+                   }}
+                 />
+               ))}
+               <span className="text-xs text-muted-foreground">More</span>
+             </div>
+           </div>
+         </div>
+       </CardContent>
+     </Card>
+   </div>
  )
 }
