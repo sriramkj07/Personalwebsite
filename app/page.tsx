@@ -43,7 +43,7 @@ export default function Home() {
         {/* Bio Section */}
         <div className="space-y-4">
           <p className="text-lg">
-            Product Manager, Tech-nerd, Amateur Coder
+            Product Manager, Amateur Coder
           </p>
          <p style={{ whiteSpace: 'pre-line' }} className="text-gray-600">
   {`I'm Sriram (Shri - Rahhm),`} <Link href="https://www.sriramkj.com/builds" target="_blank" rel="noopener noreferrer" className="text-inherit hover:underline">I build products,</Link> {`I cycle, I `}
