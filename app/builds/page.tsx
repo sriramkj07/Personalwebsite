@@ -12,7 +12,7 @@ const projects = [
     title: "Payanam",
     description: "An AI travel agent to help you plan, book, and supercharge your adventure",
     link: "https://payanamhq.com/"
-  }
+  },
 {
     title: "Visa Clarity",
     description: "A high level overview of Visas and their processes",
