@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useState } from 'react';
 import { LayoutGrid, LayoutList, Timer, Plane, Stamp } from 'lucide-react';
 
@@ -25,22 +24,24 @@ const projects = [
 ];
 
 const GridLayout = () => (
-  <div className="grid grid-cols-2 gap-6">
+  <div className="grid grid-cols-2 gap-6 max-w-3xl mx-auto">
     {projects.map((project, index) => (
-      <div key={index} className="border rounded-lg p-6 relative min-h-[200px]">
-        <div className="bg-gray-100 w-12 h-12 rounded-full flex items-center justify-center mb-4">
+      <div key={index} className="border rounded-lg p-6 relative hover:shadow-lg transition-shadow min-h-[200px]">
+        <div className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center mb-4">
           {project.icon}
         </div>
-        <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
-        <p className="text-gray-600 mb-4">{project.description}</p>
-        <span className="absolute bottom-6 right-6 text-blue-600 text-2xl">→</span>
+        <h2 className="text-lg font-semibold mb-2">{project.title}</h2>
+        <p className="text-gray-600 text-sm mb-8">{project.description}</p>
+        <a href={project.link} className="absolute bottom-6 right-6 text-blue-600">
+          <span className="text-xl">→</span>
+        </a>
       </div>
     ))}
   </div>
 );
 
 const ListLayout = () => (
-  <div className="space-y-6">
+  <div className="space-y-6 max-w-2xl mx-auto">
     {projects.map((project, index) => (
       <div key={index} className="border rounded-lg p-6 hover:shadow-lg transition-shadow">
         <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
@@ -58,7 +59,7 @@ export default function Builds() {
 
   return (
     <div className="min-h-screen bg-white text-black p-8 md:p-16 lg:p-24 font-mono">
-      <div className="max-w-6xl mx-auto space-y-8">
+      <div className="max-w-4xl mx-auto space-y-8">
         <div className="flex justify-between items-center">
           <h1 className="text-3xl font-bold">Builds</h1>
           
@@ -87,7 +88,7 @@ export default function Builds() {
         </div>
 
         {viewType === 'list' && (
-          <p className="text-gray-600">
+          <p className="text-gray-600 max-w-2xl mx-auto">
             A collection of things I've built, from small weekend projects to more substantial applications.
           </p>
         )}
