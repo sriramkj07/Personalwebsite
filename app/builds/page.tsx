@@ -3,10 +3,6 @@
 import React, { useState } from 'react';
 import { LayoutGrid, LayoutList, Timer, Plane, Stamp } from 'lucide-react';
 
-export const metadata = {
-  title: 'Builds - Sriram Kothandaraman'
-};
-
 const projects = [
   {
     title: "Year Tracker",
