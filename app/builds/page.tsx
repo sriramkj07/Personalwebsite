@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from 'react';
 import { LayoutGrid, LayoutList, Timer, Plane, Stamp } from 'lucide-react';
 
