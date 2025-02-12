@@ -24,7 +24,7 @@ const projects = [
 ];
 
 const GridLayout = () => (
-  <div className="grid grid-cols-2 gap-6 max-w-3xl mx-auto">
+  <div className="grid grid-cols-2 gap-6 max-w-3xl">
     {projects.map((project, index) => (
       <div key={index} className="border rounded-lg p-6 relative hover:shadow-lg transition-shadow min-h-[200px]">
         <div className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center mb-4">
@@ -41,7 +41,7 @@ const GridLayout = () => (
 );
 
 const ListLayout = () => (
-  <div className="space-y-6 max-w-2xl mx-auto">
+  <div className="space-y-6 max-w-2xl">
     {projects.map((project, index) => (
       <div key={index} className="border rounded-lg p-6 hover:shadow-lg transition-shadow">
         <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
@@ -59,8 +59,8 @@ export default function Builds() {
 
   return (
     <div className="min-h-screen bg-white text-black p-8 md:p-16 lg:p-24 font-mono">
-      <div className="max-w-4xl mx-auto space-y-8">
-        <div className="flex justify-between items-center">
+      <div className="max-w-3xl mx-auto">
+        <div className="flex justify-between items-center mb-8">
           <h1 className="text-3xl font-bold">Builds</h1>
           
           <div className="bg-gray-100 p-1 rounded-full flex gap-1">
@@ -87,11 +87,9 @@ export default function Builds() {
           </div>
         </div>
 
-        {viewType === 'list' && (
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            A collection of things I've built, from small weekend projects to more substantial applications.
-          </p>
-        )}
+        <p className="text-gray-600 mb-8">
+          A collection of things I've built, from small weekend projects to more substantial applications.
+        </p>
         
         {viewType === 'grid' ? <GridLayout /> : <ListLayout />}
       </div>
