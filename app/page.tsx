@@ -5,7 +5,10 @@ import { ThemeSwitcher } from '@/components/theme-switcher';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white p-8 md:p-16 lg:p-24 font-mono">
+    <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white p-4 md:p-16 lg:p-24 font-mono">
+      <div className="flex justify-end mb-4">
+        <ThemeSwitcher />
+      </div>
       <div className="max-w-2xl mx-auto space-y-8">
         {/* Header with Theme Switcher */}
         <div className="flex justify-between items-start">

@@ -18,14 +18,9 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={jetbrainsMono.className} suppressHydrationWarning>
-      <body className="bg-white dark:bg-gray-950 text-black dark:text-white transition-colors">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
+    <html lang="en" suppressHydrationWarning>
+      <body className={`${jetbrainsMono.className} bg-white dark:bg-gray-950 text-black dark:text-white`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {children}
         </ThemeProvider>
       </body>
