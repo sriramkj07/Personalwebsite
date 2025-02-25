@@ -1,6 +1,7 @@
 import './globals.css'
 import { JetBrains_Mono } from 'next/font/google'
-// app/layout.tsx
+import { ThemeProvider } from '@/components/theme-provider'
+
 export const metadata = {
   title: 'Sriram Kothandaraman',
   description: 'A personal website, thats all folks'
@@ -17,8 +18,17 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={jetbrainsMono.className}>
-      <body>{children}</body>
+    <html lang="en" className={jetbrainsMono.className} suppressHydrationWarning>
+      <body className="bg-white dark:bg-gray-950 text-black dark:text-white transition-colors">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
