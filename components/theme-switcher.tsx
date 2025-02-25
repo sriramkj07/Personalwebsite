@@ -6,8 +6,9 @@ import { SunIcon, MoonIcon } from '@heroicons/react/24/solid'
 
 export function ThemeSwitcher() {
   const [mounted, setMounted] = useState(false)
-  const { resolvedTheme, setTheme } = useTheme()
+  const { theme, setTheme } = useTheme()
 
+  // Prevent hydration mismatch
   useEffect(() => {
     setMounted(true)
   }, [])
@@ -18,14 +19,13 @@ export function ThemeSwitcher() {
 
   return (
     <button
-      onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
-      className="p-2 rounded-lg bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700"
-      aria-label="Toggle theme"
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      className="rounded-lg bg-gray-100 p-2 dark:bg-gray-800"
     >
-      {resolvedTheme === 'dark' ? (
-        <SunIcon className="h-5 w-5 text-gray-800 dark:text-gray-200" />
+      {theme === 'dark' ? (
+        <SunIcon className="h-5 w-5" />
       ) : (
-        <MoonIcon className="h-5 w-5 text-gray-800 dark:text-gray-200" />
+        <MoonIcon className="h-5 w-5" />
       )}
     </button>
   )

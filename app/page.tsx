@@ -6,11 +6,12 @@ import { ThemeSwitcher } from '@/components/theme-switcher';
 export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white p-4 md:p-16 lg:p-24 font-mono">
-      <div className="flex justify-end mb-8">
-        <ThemeSwitcher />
-      </div>
-      <div className="max-w-2xl mx-auto space-y-8">
-        {/* Header with Theme Switcher */}
+      <div className="max-w-2xl mx-auto">
+        <div className="flex justify-between items-center mb-8">
+          <h1 className="text-3xl font-bold">Sriram Kothandaraman</h1>
+          <ThemeSwitcher />
+        </div>
+        {/* Header with Profile Picture */}
         <div className="flex justify-between items-start">
           <div className="space-y-4">
             <div className="w-32 h-32 rounded-full overflow-hidden">
@@ -22,7 +23,6 @@ export default function Home() {
                 className="object-cover"
               />
             </div>
-            <h1 className="text-3xl font-bold">Sriram Kothandaraman</h1>
           </div>
         </div>
         

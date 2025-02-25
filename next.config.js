@@ -5,14 +5,6 @@ const nextConfig = {
   },
   eslint: {
     ignoreDuringBuilds: true,
-  },
-  async rewrites() {
-    return [
-      {
-        source: '/yeartracker',
-        destination: 'https://v0-year-tracker-kdtvebvqvje-sriramkj07-sriramkj07s-projects.vercel.app/'
-      }
-    ]
   }
 }
 

@@ -20,8 +20,8 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={jetbrainsMono.className}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white">
+        <ThemeProvider>
+          <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white transition-colors">
             {children}
           </div>
         </ThemeProvider>
