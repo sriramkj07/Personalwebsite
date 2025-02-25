@@ -5,8 +5,8 @@ import { ThemeSwitcher } from '@/components/theme-switcher';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white p-4 md:p-16 lg:p-24 font-mono">
-      <div className="flex justify-end mb-4">
+    <main className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white p-4 md:p-16 lg:p-24 font-mono">
+      <div className="flex justify-end mb-8">
         <ThemeSwitcher />
       </div>
       <div className="max-w-2xl mx-auto space-y-8">
@@ -24,7 +24,6 @@ export default function Home() {
             </div>
             <h1 className="text-3xl font-bold">Sriram Kothandaraman</h1>
           </div>
-          <ThemeSwitcher />
         </div>
         
         {/* Social Links */}
@@ -75,6 +74,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

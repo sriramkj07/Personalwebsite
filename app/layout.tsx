@@ -19,9 +19,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${jetbrainsMono.className} bg-white dark:bg-gray-950 text-black dark:text-white`}>
+      <body className={jetbrainsMono.className}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white">
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>
