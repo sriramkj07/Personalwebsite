@@ -7,15 +7,9 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white p-4 md:p-16 lg:p-24 font-mono flex justify-center">
       <div className="w-full max-w-2xl">
-        {/* Header with Theme Switcher */}
-        <div className="flex justify-end mb-8">
-          <ThemeSwitcher />
-        </div>
-
-        {/* Profile Section */}
-        <div className="space-y-6">
-          {/* Profile Image */}
-          <div className="w-28 h-28 rounded-full overflow-hidden mx-auto mb-4">
+        {/* Header with Profile Image and Theme Switcher */}
+        <div className="flex justify-between items-start mb-12">
+          <div className="w-28 h-28 rounded-full overflow-hidden">
             <Image
               src="/Sriram.jpeg"
               alt="Profile picture"
@@ -24,14 +18,18 @@ export default function Home() {
               className="object-cover"
             />
           </div>
+          <ThemeSwitcher />
+        </div>
 
+        {/* Content Section */}
+        <div className="space-y-6">
           {/* Name */}
-          <h1 className="text-3xl font-bold text-center mb-6">
+          <h1 className="text-3xl font-bold">
             Sriram Kothandaraman
           </h1>
 
           {/* Social Links */}
-          <div className="flex gap-6 justify-center">
+          <div className="flex gap-6">
             <a href="mailto:sriramkj07@gmail.com" className="text-blue-500 hover:text-blue-600 flex items-center gap-1">
               <Mail className="w-4 h-4" />
               <span>Email</span>
@@ -51,7 +49,7 @@ export default function Home() {
           </div>
 
           {/* Bio Section */}
-          <div className="space-y-6 mt-8">
+          <div className="space-y-6">
             <h2 className="text-xl">Product Manager, Amateur Coder</h2>
             
             <p>
