@@ -24,15 +24,20 @@ const projects = [
 ];
 
 const GridLayout = () => (
-  <div className="grid grid-cols-2 gap-6 max-w-3xl">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
     {projects.map((project, index) => (
-      <div key={index} className="border rounded-lg p-6 relative hover:shadow-lg transition-shadow min-h-[200px]">
-        <div className="bg-gray-100 w-10 h-10 rounded-full flex items-center justify-center mb-4">
+      <div key={index} className="border border-gray-200 dark:border-gray-800 rounded-lg p-6 relative hover:shadow-lg transition-shadow">
+        <div className="bg-gray-100 dark:bg-gray-800 w-10 h-10 rounded-full flex items-center justify-center mb-4">
           {project.icon}
         </div>
         <h2 className="text-lg font-semibold mb-2">{project.title}</h2>
-        <p className="text-gray-600 text-sm mb-8">{project.description}</p>
-        <a href={project.link} className="absolute bottom-6 right-6 text-blue-600">
+        <p className="text-gray-600 dark:text-gray-400 text-sm mb-8">{project.description}</p>
+        <a 
+          href={project.link} 
+          className="absolute bottom-6 right-6 text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <span className="text-xl">→</span>
         </a>
       </div>
@@ -41,12 +46,17 @@ const GridLayout = () => (
 );
 
 const ListLayout = () => (
-  <div className="space-y-6 max-w-2xl">
+  <div className="space-y-6">
     {projects.map((project, index) => (
-      <div key={index} className="border rounded-lg p-6 hover:shadow-lg transition-shadow">
+      <div key={index} className="border border-gray-200 dark:border-gray-800 rounded-lg p-6 hover:shadow-lg transition-shadow">
         <h2 className="text-xl font-semibold mb-2">{project.title}</h2>
-        <p className="text-gray-600 mb-4">{project.description}</p>
-        <a href={project.link} className="text-blue-600 hover:text-blue-800 flex items-center gap-2">
+        <p className="text-gray-600 dark:text-gray-400 mb-4">{project.description}</p>
+        <a 
+          href={project.link} 
+          className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300 flex items-center gap-2"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           View Project →
         </a>
       </div>
@@ -58,41 +68,41 @@ export default function Builds() {
   const [viewType, setViewType] = useState('list');
 
   return (
-    <div className="min-h-screen bg-white text-black p-8 md:p-16 lg:p-24 font-mono">
-      <div className="max-w-3xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold">Builds</h1>
-          
-          <div className="bg-gray-100 p-1 rounded-full flex gap-1">
-            <button
-              onClick={() => setViewType('list')}
-              className={`p-2 rounded-full transition-colors ${
-                viewType === 'list' 
-                  ? 'bg-white shadow-sm' 
-                  : 'hover:bg-gray-200'
-              }`}
-            >
-              <LayoutList size={20} />
-            </button>
-            <button
-              onClick={() => setViewType('grid')}
-              className={`p-2 rounded-full transition-colors ${
-                viewType === 'grid' 
-                  ? 'bg-white shadow-sm' 
-                  : 'hover:bg-gray-200'
-              }`}
-            >
-              <LayoutGrid size={20} />
-            </button>
-          </div>
-        </div>
-
-        <p className="text-gray-600 mb-8">
-          A collection of things I've built, from small weekend projects to more substantial applications.
-        </p>
+    <main className="w-full max-w-2xl mx-auto p-4 md:p-8 lg:p-12">
+      <div className="flex justify-between items-center mb-12">
+        <h1 className="text-3xl font-bold">Builds</h1>
         
-        {viewType === 'grid' ? <GridLayout /> : <ListLayout />}
+        <div className="bg-gray-100 dark:bg-gray-800 p-1 rounded-full flex gap-1">
+          <button
+            onClick={() => setViewType('list')}
+            className={`p-2 rounded-full transition-colors ${
+              viewType === 'list' 
+                ? 'bg-white dark:bg-gray-700 shadow-sm' 
+                : 'hover:bg-gray-200 dark:hover:bg-gray-600'
+            }`}
+            aria-label="List view"
+          >
+            <LayoutList size={20} />
+          </button>
+          <button
+            onClick={() => setViewType('grid')}
+            className={`p-2 rounded-full transition-colors ${
+              viewType === 'grid' 
+                ? 'bg-white dark:bg-gray-700 shadow-sm' 
+                : 'hover:bg-gray-200 dark:hover:bg-gray-600'
+            }`}
+            aria-label="Grid view"
+          >
+            <LayoutGrid size={20} />
+          </button>
+        </div>
       </div>
-    </div>
+
+      <p className="text-gray-600 dark:text-gray-400 mb-8">
+        A collection of things I've built, from small weekend projects to more substantial applications.
+      </p>
+      
+      {viewType === 'grid' ? <GridLayout /> : <ListLayout />}
+    </main>
   );
 }
