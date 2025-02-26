@@ -1,17 +1,11 @@
 import './globals.css'
-import { JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Footer } from '@/components/footer'
 
 export const metadata = {
   title: 'Sriram Kothandaraman',
-  description: 'A personal website, thats all folks'
+  description: 'Product Manager, Amateur Coder',
 }
-
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ['latin'],
-  display: 'swap'
-})
 
 export default function RootLayout({
   children,
@@ -19,11 +13,13 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={jetbrainsMono.className}>
+    <html lang="en">
+      <body>
         <ThemeProvider>
-          <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white transition-colors">
-            {children}
+          <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white flex flex-col">
+            <div className="flex-grow">
+              {children}
+            </div>
             <Footer />
           </div>
         </ThemeProvider>

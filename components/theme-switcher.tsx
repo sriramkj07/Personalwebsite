@@ -1,35 +1,21 @@
 'use client'
 
 import { useTheme } from 'next-themes'
-import { useEffect, useState } from 'react'
-import { SunIcon, MoonIcon } from '@heroicons/react/24/solid'
+import { SunIcon, MoonIcon } from 'lucide-react'
 
 export function ThemeSwitcher() {
-  const [mounted, setMounted] = useState(false)
   const { theme, setTheme } = useTheme()
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
-  if (!mounted) {
-    return (
-      <button className="w-9 h-9 bg-gray-200 rounded-lg dark:bg-gray-600">
-        <span className="sr-only">Loading theme</span>
-      </button>
-    )
-  }
 
   return (
     <button
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-      className="w-9 h-9 flex items-center justify-center rounded-lg bg-gray-200 hover:bg-gray-300 dark:bg-gray-600 dark:hover:bg-gray-700"
+      className="text-gray-500 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200 transition-colors"
       aria-label="Toggle theme"
     >
       {theme === 'dark' ? (
-        <SunIcon className="w-5 h-5 text-orange-300" />
+        <SunIcon className="w-4 h-4" />
       ) : (
-        <MoonIcon className="w-5 h-5 text-gray-700" />
+        <MoonIcon className="w-4 h-4" />
       )}
     </button>
   )
