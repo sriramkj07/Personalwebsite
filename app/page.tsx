@@ -27,11 +27,11 @@ export default function Home() {
 
         {/* Social Links */}
         <div className="flex gap-6">
-          <a href="mailto:sriramkj07@gmail.com" className="text-blue-500 hover:text-blue-600 flex items-center gap-1">
+          <a href="mailto:kothandaraman.s@northeastern.edu" className="text-blue-500 hover:text-blue-600 flex items-center gap-1">
             <Mail className="w-4 h-4" />
             <span>Email</span>
           </a>
-          <a href="https://linkedin.com/in/sriramkj07" className="text-blue-500 hover:text-blue-600 flex items-center gap-1" target="_blank" rel="noopener noreferrer">
+          <a href="https://linkedin.com/in/sriramkj" className="text-blue-500 hover:text-blue-600 flex items-center gap-1" target="_blank" rel="noopener noreferrer">
             <Linkedin className="w-4 h-4" />
             <span>LinkedIn</span>
           </a>
@@ -39,9 +39,9 @@ export default function Home() {
             <Github className="w-4 h-4" />
             <span>GitHub</span>
           </a>
-          <a href="https://topmate.io/sriramkj07" className="text-blue-500 hover:text-blue-600 flex items-center gap-1" target="_blank" rel="noopener noreferrer">
+          <a href="https://cal.com/sriramkj" className="text-blue-500 hover:text-blue-600 flex items-center gap-1" target="_blank" rel="noopener noreferrer">
             <Calendar className="w-4 h-4" />
-            <span>Topmate</span>
+            <span>Cal.com</span>
           </a>
         </div>
 
