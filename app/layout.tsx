@@ -1,6 +1,7 @@
 import './globals.css'
 import { JetBrains_Mono } from 'next/font/google'
 import { ThemeProvider } from '@/components/theme-provider'
+import { Footer } from '@/components/footer'
 
 export const metadata = {
   title: 'Sriram Kothandaraman',
@@ -23,6 +24,7 @@ export default function RootLayout({
         <ThemeProvider>
           <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white transition-colors">
             {children}
+            <Footer />
           </div>
         </ThemeProvider>
       </body>
