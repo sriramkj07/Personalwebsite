@@ -17,6 +17,10 @@ export default function Essays() {
     {
       href: "https://blog.samaltman.com/productivity",
       title: "Productivity by Sam Altman"
+    },
+    {
+      href: "https://paulbuchheit.blogspot.com/2011/",
+      title: "I am Nothing by Paul Buchheit"
     }
   ];
   
@@ -26,12 +30,9 @@ export default function Essays() {
       
       <div className="text-gray-600 dark:text-gray-400 mb-8 leading-relaxed whitespace-pre-line">
         {`I'm fascinated by interesting essays written by extremely smart people, which made sense and kept me hooked.
-
-These essays have a high re-reability rate. I personally have went back to look, read, get inspired by them several times.
-
-I also wanted a personal repository that I could just access immediately, and if it helps others get inspired, even better!
-
-If you know of an interesting essay that can breakdown complex ideas into simple truths, drop me a note at `}
+        These essays have a high re-reability rate. I personally have went back to look, read, get inspired by them several times.
+        I also wanted a personal repository that I could just access immediately, and if it helps others get inspired, even better!
+        If you know of an interesting essay that can breakdown complex ideas into simple truths, drop me a note at `}
         <a
           href="mailto:kothandaraman.s@northeastern.edu"
           className="text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
