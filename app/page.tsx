@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { Mail, Github, Linkedin, Calendar } from 'lucide-react'
+import CalendarWidget from '@/components/CalendarWidget'
 
 export default function Home() {
   return (
@@ -74,6 +75,7 @@ export default function Home() {
           </p>
         </div>
       </div>
+      <CalendarWidget />
     </main>
   )
 }
