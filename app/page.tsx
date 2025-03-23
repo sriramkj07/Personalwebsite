@@ -55,11 +55,7 @@ export default function Home() {
           </p>
           
           <p>
-            I currently build products at ServiceNow. I'm fascinated by powerful network effects enabled by tech and how it disrupts traditional markets.
-          </p>
-          
-          <p>
-            I aspire to build such large scale platforms for the future.
+            I currently build products at ServiceNow. I want to build amazing products that people love. 
           </p>
           
           <p>
