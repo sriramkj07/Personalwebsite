@@ -20,7 +20,7 @@ const projects = [
     description: "A high level overview of Visas and their processes",
     link: "https://visaclarity.com/",
     icon: <Stamp className="w-6 h-6" />
-  }
+  },
   {
     title: "Whisper GUI",
     description: "A modern, user-friendly GUI for OpenAI's Whisper speech-to-text model",
