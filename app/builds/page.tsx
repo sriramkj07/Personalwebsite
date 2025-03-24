@@ -21,6 +21,12 @@ const projects = [
     link: "https://visaclarity.com/",
     icon: <Stamp className="w-6 h-6" />
   }
+  {
+    title: "Whisper GUI",
+    description: "A modern, user-friendly GUI for OpenAI's Whisper speech-to-text model",
+    link: "https://github.com/sriramkj07/GUI-for-Whisper?tab=readme-ov-file",
+    icon: <Stamp className="w-6 h-6" />
+  }
 ];
 
 const GridLayout = () => (
