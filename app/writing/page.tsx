@@ -22,7 +22,7 @@ export default function Writing() {
                 <h3 className="text-lg font-medium text-blue-500 group-hover:text-blue-600">
                   A guide on implementing effective AI evaluations
                 </h3>
-                <time className="text-sm text-gray-500">July 2025</time>
+                <time className="text-sm text-gray-500">June 2025</time>
               </div>
             </Link>
           </article>
