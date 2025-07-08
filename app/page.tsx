@@ -59,7 +59,7 @@ export default function Home() {
           </p>
           
           <p>
-            I hope to <a href="https://substack.com/@agentai" className="text-blue-500 hover:text-blue-600" target="_blank" rel="noopener noreferrer">write</a> about some of these interests and showcase my <Link href="/builds" className="text-blue-500 hover:text-blue-600">builds</Link>
+            I hope to <Link href="/writing" className="text-blue-500 hover:text-blue-600">write</Link> about some of these interests and showcase my <Link href="/builds" className="text-blue-500 hover:text-blue-600">builds</Link>
           </p>
           
           <p>
