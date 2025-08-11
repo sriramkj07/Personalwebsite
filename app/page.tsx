@@ -48,7 +48,7 @@ export default function Home() {
 
         {/* Bio Section */}
         <div className="space-y-6">
-          <h2 className="text-xl">Product Manager, Amateur Coder</h2>
+          <h2 className="text-xl">Product Manager, Builder</h2>
           
           <p>
             I'm Sriram (Shri - Rahhm), I build products, I cycle, I love reading books and I have a fondness for stand-up com(ics)edy.

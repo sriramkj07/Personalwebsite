@@ -6,7 +6,7 @@ export default function Writing() {
       <div className="space-y-6">
         <h1 className="text-3xl font-bold mb-8">Writing</h1>
         
-        <p className="text-gray-600 mb-8">
+        <p className="text-black dark:text-600 mb-8">
           Welcome to my collection of writings on product management, technology, and personal interests.
         </p>
 
