@@ -3,7 +3,7 @@ import { PageContainer } from '@/components/page-container'
 import Image from 'next/image'
 import { watches } from './collection'
 
-const title = 'Watches I would like to own'
+const title = 'Watches Id like to own'
 const description = 'My grail watches.'
 
 export const metadata: Metadata = {
