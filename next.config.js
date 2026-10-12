@@ -1,5 +1,7 @@
 const nextConfig = {
   output: 'export',
+  trailingSlash: true,
+  outputFileTracingRoot: __dirname,
   images: {
     unoptimized: true,
   },

@@ -4,7 +4,7 @@ This is my personal website built with Next.js and deployed on GitHub Pages. It 
 
 ## Tech Stack
 
-- **Framework**: Next.js 14
+- **Framework**: Next.js 15
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS
 - **Icons**: Lucide React
@@ -23,3 +23,14 @@ Edit `app/watchesilove/collection.ts` to change the watches. Official product
 images live in `app/watchesilove/images` and are embedded at build time, so viewing
 the page does not request images from third-party servers. No secret is required
 for development or deployment.
+
+## Deployment
+
+Pushing `main` runs `.github/workflows/main.yml`: install the locked dependencies,
+lint, build the static export, and deploy `out` to GitHub Pages. Routes export as
+directories so direct visits and refreshes work on a static host.
+
+GitHub Pages is configured for `sriramkj.com`. DNS at the domain provider must
+point the apex to GitHub Pages and `www` to `sriramkj07.github.io`; then enable
+Enforce HTTPS in the repository's Pages settings. The unused Twitter posting API
+has been removed; the website needs no server functions.
