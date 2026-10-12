@@ -20,8 +20,9 @@ Fork the repository and start building away, let me know if you need any help!
 anyone with the URL can view it. Search exclusion is not access control.
 
 Edit `app/watchesilove/collection.ts` to change the watches. Official product
-images live in `app/watchesilove/images` and are embedded at build time, so viewing
-the page does not request images from third-party servers. No secret is required
+images are served locally as compressed WebP files from `public/watches`, with
+lazy loading for later entries. Original assets remain in `app/watchesilove/images`.
+Viewing the page does not request images from third-party servers. No secret is required
 for development or deployment.
 
 ## Deployment

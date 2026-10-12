@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
 import { PageContainer } from '@/components/page-container'
 import Image from 'next/image'
-import { getWatches } from './collection'
+import { watches } from './collection'
+
+const title = 'Watches I would like to own'
+const description = 'My grail watches.'
 
 export const metadata: Metadata = {
-  title: 'Watches I would like to own',
-  description: 'My grail watches.',
+  title,
+  description,
   robots: {
     index: false,
     follow: false,
@@ -20,15 +23,14 @@ export const metadata: Metadata = {
 }
 
 export default function WatchesILove() {
-  const watches = getWatches()
   return (
     <PageContainer>
-      <h1 className="text-3xl font-bold mb-4">Watches I Love</h1>
+      <h1 className="text-3xl font-bold mb-4">{title}</h1>
       <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
-        A few watches that caught my eye.
+        {description}
       </p>
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-8 sm:gap-x-6">
-        {watches.map(watch => (
+        {watches.map((watch, index) => (
           <article key={watch.reference} className="min-w-0 flex flex-col gap-3">
             <div className="bg-white rounded-lg overflow-hidden flex items-center justify-center shrink-0 w-full h-44 sm:h-48 p-3 sm:p-4">
               <Image
@@ -37,6 +39,7 @@ export default function WatchesILove() {
                 width={160}
                 height={200}
                 unoptimized
+                priority={index === 0}
                 className="w-full h-full object-contain"
                 style={{ transform: `scale(${watch.imageScale ?? 1})` }}
               />
