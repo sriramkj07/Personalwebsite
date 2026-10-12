@@ -27,7 +27,7 @@ export default function Home() {
         </h1>
 
         {/* Social Links */}
-        <div className="flex gap-6">
+        <div className="flex flex-wrap gap-6">
           <a href="mailto:kothandaraman.s@northeastern.edu" className="text-blue-500 hover:text-blue-600 flex items-center gap-1">
             <Mail className="w-4 h-4" />
             <span>Email</span>
@@ -51,11 +51,11 @@ export default function Home() {
           <h2 className="text-xl">Product Manager, Builder</h2>
           
           <p>
-            I'm Sriram (Shri - Rahhm), I build products, I cycle, I love reading books and I have a fondness for stand-up com(ics)edy.
+            I&apos;m Sriram (Shri - Rahhm), I build products, I cycle, I love reading books and I have a fondness for stand-up com(ics)edy.
           </p>
           
           <p>
-            I currently build products for ServiceNow. I hope to build amazing products that people(and their AI agents)love. 
+            I currently build products for ServiceNow. I hope to build amazing products that people (and their AI agents) love.
           </p>
           
           <p>
@@ -63,7 +63,7 @@ export default function Home() {
           </p>
           
           <p>
-            I'm currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad.
+            I&apos;m currently based in San Francisco and previously spent time in Boston (where I went to Grad school) as well as in Chennai and Hyderabad.
           </p>
           
           <p>

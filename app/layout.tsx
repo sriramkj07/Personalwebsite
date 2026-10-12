@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={jetbrainsMono.className}>
         <ThemeProvider>
           <div className="min-h-screen bg-white dark:bg-gray-950 text-black dark:text-white flex flex-col">

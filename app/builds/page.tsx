@@ -34,6 +34,7 @@ const GridLayout = () => (
         <p className="text-gray-600 dark:text-gray-400 text-sm mb-8">{project.description}</p>
         <a 
           href={project.link} 
+          aria-label={`View ${project.title}`}
           className="absolute bottom-6 right-6 text-blue-500 hover:text-blue-600 dark:text-blue-400 dark:hover:text-blue-300"
           target="_blank"
           rel="noopener noreferrer"
@@ -99,7 +100,7 @@ export default function Builds() {
       </div>
 
       <p className="text-gray-600 dark:text-gray-400 mb-8">
-        A collection of things I've built, from small weekend projects to more substantial applications.
+        A collection of things I&apos;ve built, from small weekend projects to more substantial applications.
       </p>
       
       {viewType === 'grid' ? <GridLayout /> : <ListLayout />}

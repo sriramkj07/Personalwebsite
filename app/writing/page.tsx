@@ -6,7 +6,7 @@ export default function Writing() {
       <div className="space-y-6">
         <h1 className="text-3xl font-bold mb-8">Writing</h1>
         
-        <p className="text-black dark:text-600 mb-8">
+        <p className="text-black dark:text-white mb-8">
            Trying to pen down my learnings in AI, product management, and personal interests.
         </p>
 
