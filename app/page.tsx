@@ -55,7 +55,7 @@ export default function Home() {
           </p>
           
           <p>
-            I currently build products for ServiceNow. I hope to build amazing products that people (and their AI agents) love. 
+            I currently build products for ServiceNow. I hope to build amazing products that people(and their AI agents)love. 
           </p>
           
           <p>

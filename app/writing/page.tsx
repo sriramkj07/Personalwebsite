@@ -7,7 +7,7 @@ export default function Writing() {
         <h1 className="text-3xl font-bold mb-8">Writing</h1>
         
         <p className="text-black dark:text-600 mb-8">
-          Welcome to my collection of writings on product management, technology, and personal interests.
+           Trying to pen down my learnings in AI, product management, and personal interests.
         </p>
 
         <div className="space-y-6">
