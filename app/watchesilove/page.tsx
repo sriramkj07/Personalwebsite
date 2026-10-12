@@ -4,8 +4,8 @@ import Image from 'next/image'
 import { getWatches } from './collection'
 
 export const metadata: Metadata = {
-  title: 'Watches I Love',
-  description: 'A personal collection of watches I love.',
+  title: 'Watches I would like to own',
+  description: 'My grail watches.',
   robots: {
     index: false,
     follow: false,
