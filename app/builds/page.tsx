@@ -70,7 +70,7 @@ export default function Builds() {
 
   return (
     <main className="w-full max-w-2xl mx-auto p-4 md:p-8 lg:p-12">
-      <div className="flex justify-between items-center mb-12">
+      <div className="flex justify-between items-center mb-4">
         <h1 className="text-3xl font-bold">Builds</h1>
         
         <div className="bg-gray-100 dark:bg-gray-800 p-1 rounded-full flex gap-1">
@@ -99,7 +99,7 @@ export default function Builds() {
         </div>
       </div>
 
-      <p className="text-gray-600 dark:text-gray-400 mb-8">
+      <p className="text-gray-600 dark:text-gray-400 mb-6">
         A collection of things I&apos;ve built, from small weekend projects to more substantial applications.
       </p>
       

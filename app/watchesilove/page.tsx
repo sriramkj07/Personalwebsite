@@ -23,13 +23,13 @@ export default function WatchesILove() {
   const watches = getWatches()
   return (
     <PageContainer>
-      <h1 className="text-3xl font-bold mb-12">Watches I Love</h1>
-      <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-8">
+      <h1 className="text-3xl font-bold mb-4">Watches I Love</h1>
+      <p className="text-gray-600 dark:text-gray-400 leading-relaxed mb-6">
         A few watches that caught my eye.
       </p>
-      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-10 sm:gap-x-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 gap-y-8 sm:gap-x-6">
         {watches.map(watch => (
-          <article key={watch.reference} className="min-w-0 flex flex-col gap-4">
+          <article key={watch.reference} className="min-w-0 flex flex-col gap-3">
             <div className="bg-white rounded-lg overflow-hidden flex items-center justify-center shrink-0 w-full h-44 sm:h-48 p-3 sm:p-4">
               <Image
                 src={watch.image}
