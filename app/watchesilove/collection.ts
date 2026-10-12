@@ -38,5 +38,26 @@ export function getWatches(): Watch[] {
       href: 'https://www.citizenwatches.com.au/products/aw0130-85m',
       image: image('citizen-zenshin-turquoise.webp', 'image/webp'),
     },
+    {
+      name: 'Studio Underd0g Watermel0n',
+      reference: '01WMB · Gen3',
+      detail: 'Watermelon dial · Manual chronograph',
+      href: 'https://underd0g.com/products/01wmb',
+      image: image('studio-underdog-watermelon.png', 'image/png'),
+    },
+    {
+      name: 'Omega Speedmaster Moonwatch',
+      reference: '310.30.42.50.01.002',
+      detail: 'Black dial · Sapphire crystal',
+      href: 'https://www.omegawatches.com/en-us/watch-omega-speedmaster-moonwatch-professional-co-axial-master-chronometer-chronograph-42-mm-31030425001002',
+      image: image('omega-speedmaster-moonwatch.png', 'image/png'),
+    },
+    {
+      name: 'Omega Seamaster Aqua Terra 150M',
+      reference: '220.10.41.21.03.004',
+      detail: 'Blue dial · Steel bracelet',
+      href: 'https://www.omegawatches.com/en-us/watch-omega-seamaster-aqua-terra-150m-co-axial-master-chronometer-41-mm-22010412103004',
+      image: image('omega-aqua-terra-blue.png', 'image/png'),
+    },
   ]
 }
