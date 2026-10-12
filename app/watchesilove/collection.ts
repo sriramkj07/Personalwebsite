@@ -31,5 +31,12 @@ export function getWatches(): Watch[] {
       image: image('rolex-daytona.png', 'image/png'),
       imageScale: 1.5,
     },
+    {
+      name: 'Citizen Zenshin',
+      reference: 'AW0130-85M',
+      detail: 'Turquoise dial · Eco-Drive',
+      href: 'https://www.citizenwatches.com.au/products/aw0130-85m',
+      image: image('citizen-zenshin-turquoise.webp', 'image/webp'),
+    },
   ]
 }
