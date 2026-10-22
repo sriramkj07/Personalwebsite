@@ -51,4 +51,18 @@ export const watches: Watch[] = [
     href: 'https://www.omegawatches.com/en-us/watch-omega-seamaster-aqua-terra-150m-co-axial-master-chronometer-gmt-worldtimer-43-mm-22012432203001',
     image: '/watches/omega-aqua-terra-worldtimer.webp',
   },
+  {
+    name: 'Longines HydroConquest',
+    reference: 'L3.781.4.06.6',
+    detail: 'Green dial · 41 mm · Automatic',
+    href: 'https://www.longines.com/en-us/p/watch-hydroconquest-l3-781-4-06-6',
+    image: 'https://api.ecom.longines.com/media/catalog/product/w/a/watch-collection-hydroconquest-l3-781-4-06-6-2799e4-hero.png?w=600',
+  },
+  {
+    name: 'Seiko Prospex SPB143',
+    reference: 'SPB143J1',
+    detail: 'Grey dial · 40.5 mm · Automatic diver',
+    href: 'https://www.seikowatches.com/ph-en/products/prospex/SPB143J1',
+    image: 'https://www.seikowatches.com/ph-en/-/media/Images/Product--Image/All/Seiko/2022/02/20/00/49/SPB143J1/SPB143J1.png?mh=600&mw=600',
+  },
 ]
