@@ -24,11 +24,11 @@ export const watches: Watch[] = [
     imageScale: 1.5,
   },
   {
-    name: 'Citizen Zenshin',
-    reference: 'AW0130-85M',
-    detail: 'Turquoise dial · Eco-Drive',
-    href: 'https://www.citizenwatches.com.au/products/aw0130-85m',
-    image: '/watches/citizen-zenshin-turquoise.webp',
+    name: 'Citizen Zenshin Chrono',
+    reference: 'CA4610-85M',
+    detail: 'Turquoise dial · Eco-Drive chronograph',
+    href: 'https://www.citizenwatches.com.au/products/ca4610-85m',
+    image: 'https://www.citizenwatches.com.au/cdn/shop/files/CA4610-85M_F_shot.webp?v=1763502815&width=600',
   },
   {
     name: 'Studio Underd0g Watermel0n',
