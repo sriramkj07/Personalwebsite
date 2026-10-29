@@ -12,6 +12,20 @@ export default function Writing() {
 
         <div className="space-y-6">
           <article className="group">
+            <Link
+              href="https://agentai.substack.com/p/atoms-not-bits"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block"
+            >
+              <div className="space-y-2">
+                <h3 className="text-lg font-medium text-blue-500 group-hover:text-blue-600">
+                  Atoms, Not Bits
+                </h3>
+              </div>
+            </Link>
+          </article>
+          <article className="group">
             <Link 
               href="https://www.mindtheproduct.com/how-to-implement-effective-ai-evaluations/"
               target="_blank"
