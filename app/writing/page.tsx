@@ -22,6 +22,7 @@ export default function Writing() {
                 <h3 className="text-lg font-medium text-blue-500 group-hover:text-blue-600">
                   Atoms, Not Bits
                 </h3>
+                <time className="text-sm text-gray-500">October 2026</time>
               </div>
             </Link>
           </article>
